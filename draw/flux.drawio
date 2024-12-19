@@ -1,4 +1,4 @@
-<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.17 Chrome/128.0.6613.36 Electron/32.0.1 Safari/537.36" version="24.7.17" pages="4">
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/25.0.2 Chrome/128.0.6613.186 Electron/32.2.5 Safari/537.36" version="25.0.2" pages="4">
   <diagram id="DDc4PMtVyzpmKCTlIc9M" name="kad0">
     <mxGraphModel dx="1562" dy="995" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
@@ -6,13 +6,13 @@
         <mxCell id="1" parent="0" />
         <UserObject label="" id="RXSBACW_DtiGnl4UMbaS-2">
           <mxCell style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=0;" parent="1" vertex="1">
-            <mxGeometry x="60" y="130" width="1070" height="570" as="geometry" />
+            <mxGeometry x="60" y="160" width="1070" height="510" as="geometry" />
           </mxCell>
         </UserObject>
-        <mxCell id="uy1zWMKJORyxMzVA4hYl-2" value="Simplified interface for devs, apps managers, ..." style="rounded=1;whiteSpace=wrap;html=1;dashed=1;verticalAlign=bottom;fontSize=17;spacingBottom=11;" parent="1" vertex="1">
-          <mxGeometry x="110" y="452" width="230" height="140" as="geometry" />
+        <mxCell id="uy1zWMKJORyxMzVA4hYl-2" value="Interface for developers,&lt;br&gt;Apps Managers, ..." style="rounded=1;whiteSpace=wrap;html=1;dashed=1;verticalAlign=bottom;fontSize=17;spacingBottom=11;" parent="1" vertex="1">
+          <mxGeometry x="109" y="452" width="230" height="140" as="geometry" />
         </mxCell>
-        <mxCell id="uy1zWMKJORyxMzVA4hYl-1" value="Configuration by&amp;nbsp;&lt;div&gt;system engineers&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;verticalAlign=top;fontSize=17;" parent="1" vertex="1">
+        <mxCell id="uy1zWMKJORyxMzVA4hYl-1" value="Configuration by&amp;nbsp;&lt;div&gt;Platform Engineers&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;verticalAlign=top;fontSize=17;" parent="1" vertex="1">
           <mxGeometry x="110" y="222" width="230" height="230" as="geometry" />
         </mxCell>
         <mxCell id="yuAfG_z4ThjncfpND7_F-1" value="Enterprise rules" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">

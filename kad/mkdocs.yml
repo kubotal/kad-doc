@@ -2,10 +2,33 @@ site_name: KAD
 
 nav:
   - Home: index.md
-  - Main concepts: concepts.md
-  - "KAD references":
-    - Components: ref-components.md
-    - ComponentRelease: ref-component-releases.md
+  - "Getting started / Tutorials":
+    - "Preparation": getting-started/preparation.md
+    - "Installation on an existing Cluster": getting-started/installation-existing-cluster.md
+    - "Deploying applications": getting-started/deploying-applications.md
+    - "Application stack": getting-started/application-stack.md
+  - "User guide":
+    - "Concepts and entities": guide/concepts-overview.md
+    - "Component": guide/component.md
+    - "ComponentRelease": guide/component-release.md
+    - "Template": guide/template.md
+    - "TemplateRelease": guide/template-release.md
+    - "Dependencies": guide/dependencies.md
+    - "Schemas": guide/schemas.md
+    - "Usage": guide/usage.md
+#    - "Document":
+#    - "loaders / multi-repositories": guide/loaders.md
+#    - "GitRepository":
+#    - "AirGap":
+#    - "Delete and protection":
+  - "Extensions":
+    - "KAD CLI": extensions/kadcli.md
+    - "Rest API": extensions/rest-api.md
+    - "User GUI": extensions/user-gui.md
+
+#  - "References":
+#    - "Components": reference/components.md
+#    - "ComponentRelease": reference/component-releases.md
 
 theme:
 #  name: readthedocs
@@ -32,7 +55,6 @@ theme:
 #    - content.code.select
 
 markdown_extensions:
-  - tables
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
