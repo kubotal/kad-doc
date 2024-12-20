@@ -1,9 +1,13 @@
 # Installation on an existing cluster
 
 
-It's assumed that your Kubernetes client configuration is correctly pointed at your target cluster and that you have full cluster admin rights
+It's assumed that your Kubernetes client configuration (`~/.kube/config`) is correctly pointed at your target cluster 
+and that you have full cluster admin rights
 
 It is also assumed your cluster match [the FluxCD prerequisites](https://fluxcd.io/flux/installation/#prerequisites).
+
+It must also have an ingress controller. This tutorial has been tested with `NGINX ingress controller`, but should be 
+easily adapted for another one.
 
 ## Configuration 
 

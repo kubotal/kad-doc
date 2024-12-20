@@ -1,5 +1,5 @@
 
-# Deploying applications with KAD
+# A first deployment
 
 ## The component object
 
@@ -57,7 +57,6 @@ It can also be used to document all the values to be supplied. (By analogy, this
 This description only covers a subset of the possible attributes for a `component`. 
 You can find a more comprehensive description in the [Guide](../guide/component.md) section.
 
-
 ## The componentRelease object
 
 A `componentRelease` is a deployed instance of a `component`.
@@ -95,7 +94,7 @@ Here, the namespace is created if it does not already exist.
 - The `component.parameters` attribute will populate the data model used to render the template 
 provided by the `values` attribute of the component.
 
-- The `namespace` attribute specify where the component will be deployed.
+- The `namespace` attribute specify where this component will be deployed.
 
 ## Making the Deployment effective
 
@@ -128,29 +127,56 @@ NAME       CLASS   HOSTS                                 ADDRESS         PORTS  
 podinfo1   nginx   podinfo1.ingress.kadtest1.k8s.local   192.168.56.11   80      50s
 ```
 
-> If this is not the case, check the logs of the `kad-controller` pod in the `flux-system` namespace
+> If this is not the case, check the logs of the `kad-controller` pod in the `flux-system` namespace. More info on [Debugging](./30-debugging.md)
 
 Now, pointing your browser to `http://podinfo1.ingress.kadtest1.k8s.local` should display the `podinfo` page.
 
-TODO: View helmReleases and helmRepository
+If you want to dig more on this, you can have a look of the generated FluxCD object:
+
+``` shell
+$ kubectl get helmReleases -n flux-system
+NAME             AGE   READY   STATUS
+kad-controller   24h   True    Helm upgrade succeeded for release flux-system/kad-controller.v2 with chart kad-controller@0.6.0-snapshot+fa7332def1eb
+podinfo1         10h   True    Helm install succeeded for release podinfo1/podinfo1.v1 with chart podinfo@6.7.1
+```
+
+A key point of interest is the result of rendering the `values` section of the component. This rendered output becomes part of the `helmRelease`.
+
+```
+$ kubectl get helmReleases -n flux-system podinfo1 -o jsonpath={$.spec.values} | yq -P
+ingress:
+  className: nginx
+  enabled: true
+  hosts:
+    - host: podinfo1.ingress.kadtest1.k8s.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+```
+
+> `yq` is a small filter tool to handle json and yaml format 
+
+For the deployment process, KAD also creates a FluxCD `helmRelease` object. Note the name of this object, as it ensures 
+uniqueness when two deployments require the same helmRepository with identical characteristics.
+
+```
+$ kubectl get helmRepositories -n flux-system
+NAME                                             URL                                      AGE   READY   STATUS
+https---stefanprodan-github-io-podinfo-1h-unpr   https://stefanprodan.github.io/podinfo   10h   True    stored artifact: revision 'sha256:60fd41713cc89f0b18abc263e9c7fa9690559de220c49c1fb5b25fc3c5d3f0a6'
+```
 
 ## Application removal
 
+If the `componentRelease` object is no longer visible to KAD, it will consider that the application should be 
+uninstalled and act accordingly.
 
+To make it invisible to KAD, you can:
 
-## How the KAD files are loaded and activated
+- Comment out the YAML block
+- Delete the file
+- Rename the file with a leading _ character
 
+If this behavior is considered risky (for example, if the application contains persistent data), several safeguards 
+can be implemented. A dedicated chapter is provided to cover this aspect in detail.
 
-``` yaml
---- 
-  primarySources:
-    - name: flux-system
-      namespace: flux-system
-      kadFiles:
-        - clusters/kadtest1/deployments
-        - components
-```
-
-
-
-## Undeploy a release
+> The created namespace is NOT deleted
