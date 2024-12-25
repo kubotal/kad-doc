@@ -5,14 +5,14 @@ nav:
   - "Getting started / Tutorials":
     - "Preparation": getting-started/01-preparation.md
     - "Using an existing Cluster": getting-started/05-installation-existing-cluster.md
-    - "Installation with KIND": getting-started/10-kind.md
+    - "Installation on kind": getting-started/10-kind.md
     - "A first deployment": getting-started/15-a-first-deployment.md
     - "The deployment process": getting-started/20-the-deployment-process.md
     - "improving component": getting-started/25-improving-component.md
     - "Debugging": getting-started/30-debugging.md
     - "The KAD CLI": getting-started/35-.md
     - "The context": getting-started/30-.md
-    - "Application stack": getting-started/40-.md
+    - "Application stack": getting-started/XX-stack-.md
   - "User guide":
     - "Concepts and entities": guide/concepts-overview.md
     - "Component": guide/component.md

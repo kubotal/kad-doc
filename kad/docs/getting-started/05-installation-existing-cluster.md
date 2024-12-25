@@ -1,13 +1,18 @@
 # Installation on an existing cluster
 
+## Prerequisites
 
-It's assumed that your Kubernetes client configuration (`~/.kube/config`) is correctly pointed at your target cluster 
-and that you have full cluster admin rights
+It's assumed that you have the `kubectl` installed and that your Kubernetes client configuration (in `~/.kube/config`) 
+is correctly pointed at your target cluster and that you have **full cluster admin rights**
 
-It is also assumed your cluster match [the FluxCD prerequisites](https://fluxcd.io/flux/installation/#prerequisites).
+Your target cluster must:
 
-It must also have an ingress controller. This tutorial has been tested with `NGINX ingress controller`, but should be 
+- match [the FluxCD prerequisites](https://fluxcd.io/flux/installation/#prerequisites).
+- Have access to Internet
+- Have an ingress controller. This tutorial has been tested with `NGINX ingress controller`, but should be 
 easily adapted for another one.
+
+You must also install the [FluxCD CLI client](https://fluxcd.io/flux/installation/#install-the-flux-cli) on your workstation.
 
 ## Configuration 
 
@@ -18,9 +23,10 @@ Let’s examine the content of the repository you created in the [initial steps]
 ├── clusters
 │   ├── kadtest1
 │   │   ├── deployments
-│   │   │   └── podinfo1.yaml
-│   │   └── flux
-│   │       └── kad.yaml
+│   │   │   └── _podinfo1.yaml
+│   │   ├── flux
+│   │   │   └── kad.yaml
+│   │   └── context.yaml
 │   └── kadtest2
 │       └── .....
 └── components
@@ -41,9 +47,10 @@ In the `clusters` directory, you will find two subdirectories:
 - `kadtest1` which corresponds to the cluster used in this section.
 - `kadtest2` which corresponds to the cluster used in the second installation variant.
 
-The `kadtest1` directory itself contains two subdirectories:
+The `kadtest1` directory itself contains two subdirectories and a file:
 
 - `deployments`, intended to store the definitions of the deployed applications.
+- `context.yaml`, a file containing all cluster's context information. More on this later.
 - `flux` for use by FluxCD. All Kubernetes manifests placed in this directory will be applied by FluxCD during its 
   initialization. Here, you will find the deployment manifest for KAD: kad.yaml.
 
@@ -67,6 +74,7 @@ spec:
           namespace: flux-system
           kadFiles:
             - clusters/kadtest1/deployments
+            - clusters/kadtest1/context.yaml
             - components
       .....
 ```
@@ -114,7 +122,6 @@ flux bootstrap github \
 --interval 15s \
 --read-write-key \
 --path=clusters/kadtest1/flux
-
 ```
 
 > Adjust the path to match the cluster name if you have changed it.
@@ -164,5 +171,5 @@ source-controller-6d597849c8-djq46         1/1     Running   0          38m
 
 ```
 
-You can now follow up with the [Deploying applications](./deploying-applications.md) part
+You can now follow up with the [first deployment](./15-a-first-deployment.md) part
 

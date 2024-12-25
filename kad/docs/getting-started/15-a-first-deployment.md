@@ -129,6 +129,12 @@ podinfo1   nginx   podinfo1.ingress.kadtest1.k8s.local   192.168.56.11   80     
 
 > If this is not the case, check the logs of the `kad-controller` pod in the `flux-system` namespace. More info on [Debugging](./30-debugging.md)
 
+It is assumed your DNS is configured to resolve this hostname to the ingress controller entrypoint:
+
+- In case of an existing cluster, it is assumed you can configure the DNS. Otherwise, you can use your local `/etc/hosts` file. 
+- In case of the Kind cluster, this configuration has been described with the cluster deployment. 
+
+
 Now, pointing your browser to `http://podinfo1.ingress.kadtest1.k8s.local` should display the `podinfo` page.
 
 If you want to dig more on this, you can have a look of the generated FluxCD object:
@@ -156,7 +162,7 @@ ingress:
 
 > `yq` is a small filter tool to handle json and yaml format 
 
-For the deployment process, KAD also creates a FluxCD `helmRelease` object. Note the name of this object, as it ensures 
+For the deployment process, KAD also creates a FluxCD `helmRepositories` object. Note the name of this object, as it ensures 
 uniqueness when two deployments require the same helmRepository with identical characteristics.
 
 ```
