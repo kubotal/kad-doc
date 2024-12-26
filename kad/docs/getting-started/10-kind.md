@@ -88,7 +88,7 @@ spec:
 
 The entire content of this manifest will not be detailed here. However, it is important to focus on a specific part:
 `spec.values.config.primarySources[0].kadfiles`. This specifies the list of directories (or files) from the repository
-root that will be taken into account by KAD.
+root that will be taken into account by KAD. More on that later.
 
 ## Creating the Cluster
 
@@ -226,7 +226,7 @@ In a working directory, save the following script:
 
 You can modify the SUBJECT variable to replace with your own attributes.
 
-Running this script will generate the `ca.crt` and `ca.key` files, which constitute your new CA. 
+Running this script will generate the `ca.crt` and `ca.key` files which constitute your new CA. This in a CA subfolder. 
 
 Store these files in a secure location, as the private key must remain confidential.
 
@@ -248,12 +248,12 @@ Now save and run the following script:
     kubectl create -n cert-manager secret generic cluster-issuer-kad-ca --from-file=tls.crt=${TF}/ca.crt
     ```
 
-It will store the CA in two secrets that will be accessed by cert-manager.
+It will store the CA in two secrets that will be accessed later by cert-manager.
 
 
 ## Bootstrap
 
-The bootstrap process will modify the content of the repository. Therefore, you need to provide it with a GitHub token
+The bootstrap process will modify the content of the GIT repository. Therefore, you need to provide it with a GitHub token
 that has the appropriate permissions. (You can find more detailed information on this aspect in the [FluxCD documentation](https://fluxcd.io/flux/installation/bootstrap/github/#github-pat).)
 
 ```

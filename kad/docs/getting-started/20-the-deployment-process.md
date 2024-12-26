@@ -2,7 +2,7 @@
 
 This chapter describe how the KAD files are loaded and activated
 
-The starting point is the kad.yaml file mentioned in the installation section.
+The starting point is the `kad.yaml` file mentioned in the installation section.
 
 ``` yaml
 ---
@@ -18,6 +18,7 @@ spec:
           namespace: flux-system
           kadFiles:
             - clusters/kadtest1/deployments
+            - clusters/kadtest1/context.yaml
             - components
         - location: /kad-controller
           kadFiles:
@@ -79,21 +80,21 @@ For example, a valid file might look like this:
         allowCreateNamespace: true
         parameters:
           ingressClassName: nginx
-          url: # TBD
+          fqdn: # TBD
         values: |
           ingress:
             enabled: true
             className: {{ .Parameters.ingressClassName }}
             hosts:
-              - host: {{ .Parameters.url }}
+              - host: {{ .Parameters.fqdn }}
                 paths:
                   - path: /
                     pathType: ImplementationSpecific
     ```
 
-This file includes two 'componentRelease' objects and the associated 'component'.
+This file includes two `componentRelease` objects and the associated `component`.
 
-Except for the second 'podinfo', it is equivalent to what was previously deployed.
+Except for the second `componentRelease` `'podinfo'`, it is equivalent to what was previously deployed.
 
 KAD does not impose any restrictions on how you organize your files. Similarly, the directory structure is entirely
 irrelevant to KAD. You can define all your objects in a single file or create one file per object. The result will be exactly the same.
@@ -103,7 +104,7 @@ All objects collected by KAD are consolidated into a single internal repository,
 One consequence of this is that, for a given object type, the name must be globally unique (or the name/version pair if
 the object is of a versioned type).
 
-Now, here is the detailed process triggered in this example:
+Now, here is the detailed process triggered in previous example of deployment:
 
 - The file `.../deployments/_podinfo1.yaml` was renamed to `.../deployments/podinfo1.yaml`.
 - This modification was committed and pushed to the GitHub repository.

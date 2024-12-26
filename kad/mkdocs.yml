@@ -10,33 +10,26 @@ nav:
     - "The deployment process": getting-started/20-the-deployment-process.md
     - "improving component": getting-started/25-improving-component.md
     - "Debugging": getting-started/30-debugging.md
-    - "The KAD CLI": getting-started/35-.md
-    - "The context": getting-started/30-.md
-    - "Application stack": getting-started/XX-stack-.md
+    - "The context": getting-started/35-context.md
+    - "The KAD CLI": getting-started/40-kadcli.md
+    - "Application stack": getting-started/45-stack.md
+    - "Dependencies": getting-started/50-dependencies.md
   - "User guide":
-    - "Concepts and entities": guide/concepts-overview.md
-    - "Component": guide/component.md
-    - "ComponentRelease": guide/component-release.md
-    - "Template": guide/template.md
-    - "TemplateRelease": guide/template-release.md
-    - "Dependencies": guide/dependencies.md
-    - "Schemas": guide/schemas.md
-    - "Usage": guide/usage.md
-#    - "Git access":
-#    - "Document":
-#    - "loaders / multi-repositories": guide/loaders.md
-#    - "GitRepository":
-#    - "AirGap":
-#    - "Delete and protection":
-#    - "kad-controller configuration:"
-  - "Extensions":
-    - "KAD CLI": extensions/kadcli.md
-    - "Rest API": extensions/rest-api.md
-    #- "User GUI": extensions/user-gui.md
-
-#  - "References":
-#    - "Components": reference/components.md
-#    - "ComponentRelease": reference/component-releases.md
+    - "Concepts and entities": guide/10-concepts-overview.md
+    - "Schemas": guide/15-schemas.md
+    - "KAD CLI": guide/25-kadcli.md
+    - "Git access": guide/30-git-access.md
+    - "Document": guide/35-document.md
+    - "loaders / multi-repositories": guide/40-loaders.md
+    - "GitRepository": guide/45-git-repository.md
+    - "Air Gap": guide/50-air-gap.md
+    - "Deletion and protection": guide/55-deletion.md
+    - "kad-controller configuration": guide/60-configuration.md
+  - "References":
+    - "Components": reference/10-components.md
+    - "ComponentRelease": reference/15-component-release.md
+    - "Template": reference/20-template.md
+    - "TemplateRelease": reference/25-template-release.md
 
 theme:
 #  name: readthedocs
@@ -59,6 +52,7 @@ theme:
   icon:
     repo: fontawesome/brands/github
   features:
+    - navigation.footer
 #    - content.code.copy
 #    - content.code.select
 

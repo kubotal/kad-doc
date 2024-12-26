@@ -25,7 +25,6 @@ You'll need to install the FluxCD client on your workstation to proceed with its
 
 Next, there are two variants of this installation, depending on your environment:
 
-- [On an existing cluster](./installation-existing-cluster.md): This requires having an operational cluster, including an Ingress controller, suitable for this type of testing. This cluster must also have Internet access.
-- From scratch: Using Kind allows you to create a minimal cluster, which will then be enhanced by KAD with a set of extensions (Cert-manager, ingress, etc.).
+- [On an existing cluster](05-installation-existing-cluster.md): This requires having an operational cluster, including an Ingress controller, suitable for this type of testing. This cluster must also have Internet access.
+- [From scratch](./10-kind.md): Using [Kind](https://kind.sigs.k8s.io/) allows you to create a minimal cluster on your workstation, which will then be enhanced by KAD with a set of extensions (Cert-manager, ingress, etc.).
 
-As the first option is slightly more gradual, we encourage you to start with it if possible.

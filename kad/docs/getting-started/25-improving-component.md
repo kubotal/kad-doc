@@ -7,7 +7,7 @@ It assumes that the cluster includes a certificate generation tool: [cert-manage
 
 If this is not the case, we still recommend reading this chapter as it contains general information.
 
-If you are using the Kind cluster as described earlier, these prerequisites are, of course, satisfied.
+If you are using the Kind cluster as described earlier, these prerequisites are already satisfied.
 
 ## The new component object
 
@@ -27,7 +27,7 @@ components:
     allowCreateNamespace: true
     parameters:
       ingressClassName: nginx
-      url: # TBD
+      fqdn: # TBD
       tls: false
       certificateIssuer: # TBD if tls == true
     values: |
@@ -39,7 +39,7 @@ components:
           cert-manager.io/cluster-issuer: {{ required "`.Parameters.certificateIssuer` must be defined if tls: true" .Parameters.certificateIssuer}}
         {{- end }}
         hosts:
-          - host: {{ .Parameters.url }}
+          - host: {{ .Parameters.fqdn }}
             paths:
               - path: /
                 pathType: ImplementationSpecific
@@ -47,7 +47,7 @@ components:
         tls:
           - secretName: {{ .Meta.componentRelease.name }}-tls
             hosts:
-              - {{ .Parameters.url }}
+              - {{ .Parameters.fqdn }}
         {{- end }}
 ```
 
@@ -69,7 +69,7 @@ The goal here is to name the secret that stores the certificate. Therefore, we n
 
 To deploy a component with this version, you may create a new file in Git in the deployment folder:
 
-File: `cluster/kadtest1/deployments/podinfo2.yaml`
+File: `cluster/kadtestX/deployments/podinfo2.yaml`
 ```
 componentReleases:
   - name: podinfo2
@@ -81,15 +81,23 @@ componentReleases:
           createNamespace: true
       parameters:
         ingressClassName: # To be set if != nginx
-        url: podinfo2.ingress.kadtest1.k8s.local # To adjust to your local context
+        fqdn: podinfo2.ingress.kadtestX.k8s.local # To adjust to your local context
         tls: true
-        certificateIssuer: cluster-issuer1 # To adjust to your local context
+        certificateIssuer: kad # To adjust to your local context
     namespace: podinfo2
 ```
 
-After committing and pushing this addition, you should have a new pod `podinfo2` and a new ingress.
+As usual, some parameters may need adjustment:
 
-You should be able to point your browser to `https://podinfo2.ingress.kadtest1.k8s.local` (Note the `https`).
+- `fqdn`, at least to replace kadtestX
+- `certificateIssuer`: If you performed the deployment on kind, as stated in previous chapters, `kad` is the appropriate 
+value. Otherwise, the value depends of your cluster configuration.  
+
+After committing and pushing this addition, you should have a new pod `podinfo2` and a new `ingress` kubernetes object.
+
+You should be able to point your browser to `https://podinfo2.ingress.kadtestX.k8s.local` (Note the `https`).
+
+> Of course, your DNS system must resolve `podinfo2.ingress.kadtestX.k8s.local` to your ingress-controller endpoint.
 
 Note than the initial deployment (`podinfo1`) is retained with its original characteristics (plain text connection). 
 Component versioning allows multiple versions to coexist.

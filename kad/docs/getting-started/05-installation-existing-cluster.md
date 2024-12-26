@@ -14,6 +14,8 @@ easily adapted for another one.
 
 You must also install the [FluxCD CLI client](https://fluxcd.io/flux/installation/#install-the-flux-cli) on your workstation.
 
+> If you do not have access to an appropriate cluster, you can perform a local deployment on your workstation, as described in the [following chapter](./10-kind.md).
+
 ## Configuration 
 
 Let’s examine the content of the repository you created in the [initial steps](initial-steps.md):
@@ -81,7 +83,7 @@ spec:
 
 The entire content of this manifest will not be detailed here. However, it is important to focus on a specific part: 
 `spec.values.config.primarySources[0].kadfiles`. This specifies the list of directories (or files) from the repository 
-root that will be taken into account by KAD.
+root that will be taken into account by KAD. More on that later.
 
 If you logically wish to replace the name `kadtest1` with the actual name of your cluster, you can rename the 
 subdirectory under `clusters`. You must also update this name in the `spec.values.config.primarySources[0].kadfiles` list.

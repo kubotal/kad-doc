@@ -40,7 +40,7 @@ If it is an update, the previous version will remain untouched, and the applicat
 It is also possible that everything is correct at the KAD level, but the error lies within the deployment itself.
 
 To simulate this scenario, you can restore the definition of the `component.parameters.certificateIssuer` attribute 
-and comment out the definition of the `url` parameter.
+and comment out the definition of the `fqdn` parameter.
 
 After committing and pushing the changes to Git, and after a propagation delay, you will notice that there is no longer 
 an error in the `kad-controller` pod.
@@ -65,8 +65,8 @@ podinfo1         173m   True    Helm install succeeded for release podinfo1/podi
 podinfo2         136m   False   Helm upgrade failed for release podinfo2/podinfo2 with chart podinfo@6.7.1: cannot patch "podinfo2" with kind Ingress: Ingress.networking.k8s.io "podinfo2" is invalid: spec.tls[0].hosts[0]: Invalid value: "": a lowercase RFC 1123 subdomain must consist of lower case alphanumeric characters, '-' or '.', and must start and end with an alphanumeric character (e.g. 'example.com', regex used for validation is '[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*')
 ```
 
-It would have been better to detect such errors earlier by replacing the first `{{.Parameters.url}}` with
-`{{ required "Parameters.url must be defined" .Parameters.url }}` in the template.
+It would have been better to detect such errors earlier by replacing the first `{{.Parameters.fqdn}}` with
+`{{ required "Parameters.fqdn must be defined" .Parameters.fqdn }}` in the template.
 
 Later, the possibility of detecting such errors upstream through the use of schemas for component parameters will be discussed.
 

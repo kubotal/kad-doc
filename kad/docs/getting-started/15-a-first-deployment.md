@@ -1,6 +1,9 @@
 
 # A first deployment
 
+> This part is relevant whatever installation type you performed. For this reason, when the cluster name is specified, 
+it is set as `kadtestX`, to be replaced by `kadtest1` or `kadtest2`.
+
 ## The component object
 
 In KAD, the base deployable unit is called a `component`. A `compoonent` is in fact a wrapper around an Helm Chart.
@@ -21,20 +24,20 @@ components:
     allowCreateNamespace: true
     parameters:
       ingressClassName: nginx
-      url: # TBD
+      fqdn: # TBD
     values: |
       ingress:
         enabled: true
         className: {{ .Parameters.ingressClassName }}
         hosts:
-          - host: {{ .Parameters.url }}
+          - host: {{ .Parameters.fqdn }}
             paths:
               - path: /
                 pathType: ImplementationSpecific
 
 ```
 
-- A component has a `name` and a `version`attributes. Note that the version of the component is not linked to the version of the 
+- A component has a `name` and a `version`attributes. Note that the version of the component is not related to the version of the 
 referenced Helm chart.
 
 - The `source` sub-element references the Helm chart that will be deployed. The version of this chart can be specified 
@@ -49,6 +52,7 @@ the Helm chart.
     - The templating engine used is the same as Helm's. Therefore, it will not be detailed here.
     - However, the data model is different. It includes, in particular, a root object `.Parameters` that contains values 
       which will be defined during deployment.
+    - Although it may look like a `yaml` snippet, it is in fact a string, to allow insertion of template directive.
 
 - The `parameters` attribute allows default values to be set to complement those provided during deployment. 
 It can also be used to document all the values to be supplied. (By analogy, this serves the same purpose as the 
@@ -59,14 +63,14 @@ You can find a more comprehensive description in the [Guide](../guide/component.
 
 ## The componentRelease object
 
-A `componentRelease` is a deployed instance of a `component`.
+A `componentRelease` represents a deployed instance of a `component`.
 
 The presence of such an object triggers the creation of a Kubernetes resource of type `helmRelease`, 
 which will be handled by FluxCD to proceed with the deployment of the Helm chart.
 
 Here is a first example of the deployment of a `componentRelease`:
 
-File: `clusters/kadtest1/deployments/_podinfo1.yaml`
+File: `clusters/kadtestX/deployments/_podinfo1.yaml`
 
 ``` yaml
 componentReleases:
@@ -79,7 +83,7 @@ componentReleases:
           createNamespace: true
       parameters:
         # ingressClassName: # To be set if != nginx
-        url: podinfo1.ingress.kadtest1.k8s.local # To adjust to your local context
+        fqdn: podinfo1.ingress.kadtestX.k8s.local # To adjust to your local context
     namespace: podinfo1
 ```
 
@@ -102,9 +106,9 @@ As stated earlier, the presence of a `componentRelease` object triggers its depl
 despite having a `componentRelease` named `podinfo1`, there is no corresponding active deployment in the cluster.
 
 The reason lies in a convention followed by KAD: files with names starting with an underscore ('_') are ignored. 
-For KAD, the file `.../deployments/_podinfo1.yaml` is effectively nonexistent.
+For KAD, the file `.../deployments/_podinfo1.yaml` is nonexistent.
 
-Before proceeding with the deployment, the `parameters.url` attribute must be adjusted to a valid URL within your context. 
+Before proceeding with the deployment, the `parameters.fqdn` attribute must be adjusted to a valid FQDN within your context. 
 Additionally, the `parameters.ingressClassName` attribute may need to be updated if you are using an ingress controller 
 other than `nginx`.
 
@@ -124,7 +128,7 @@ And an ingress be created:
 ``` shell
 $ kubectl get ingress -n podinfo1
 NAME       CLASS   HOSTS                                 ADDRESS         PORTS   AGE
-podinfo1   nginx   podinfo1.ingress.kadtest1.k8s.local   192.168.56.11   80      50s
+podinfo1   nginx   podinfo1.ingress.kadtestX.k8s.local   192.168.56.11   80      50s
 ```
 
 > If this is not the case, check the logs of the `kad-controller` pod in the `flux-system` namespace. More info on [Debugging](./30-debugging.md)
@@ -134,8 +138,7 @@ It is assumed your DNS is configured to resolve this hostname to the ingress con
 - In case of an existing cluster, it is assumed you can configure the DNS. Otherwise, you can use your local `/etc/hosts` file. 
 - In case of the Kind cluster, this configuration has been described with the cluster deployment. 
 
-
-Now, pointing your browser to `http://podinfo1.ingress.kadtest1.k8s.local` should display the `podinfo` page.
+Now, pointing your browser to `http://podinfo1.ingress.kadtestX.k8s.local` should display the `podinfo` page.
 
 If you want to dig more on this, you can have a look of the generated FluxCD object:
 
@@ -148,13 +151,13 @@ podinfo1         10h   True    Helm install succeeded for release podinfo1/podin
 
 A key point of interest is the result of rendering the `values` section of the component. This rendered output becomes part of the `helmRelease`.
 
-```
+``` shell
 $ kubectl get helmReleases -n flux-system podinfo1 -o jsonpath={$.spec.values} | yq -P
 ingress:
   className: nginx
   enabled: true
   hosts:
-    - host: podinfo1.ingress.kadtest1.k8s.local
+    - fqdn: podinfo1.ingress.kadtestX.k8s.local
       paths:
         - path: /
           pathType: ImplementationSpecific
@@ -165,7 +168,7 @@ ingress:
 For the deployment process, KAD also creates a FluxCD `helmRepositories` object. Note the name of this object, as it ensures 
 uniqueness when two deployments require the same helmRepository with identical characteristics.
 
-```
+``` shell
 $ kubectl get helmRepositories -n flux-system
 NAME                                             URL                                      AGE   READY   STATUS
 https---stefanprodan-github-io-podinfo-1h-unpr   https://stefanprodan.github.io/podinfo   10h   True    stored artifact: revision 'sha256:60fd41713cc89f0b18abc263e9c7fa9690559de220c49c1fb5b25fc3c5d3f0a6'
