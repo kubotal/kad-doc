@@ -28,6 +28,8 @@ Let’s examine the content of the repository you created in the [initial steps]
 │   │   │   └── _podinfo1.yaml
 │   │   ├── flux
 │   │   │   └── kad.yaml
+│   │   ├── system
+│   │   │   └── .....
 │   │   └── context.yaml
 │   └── kadtest2
 │       └── .....
@@ -55,6 +57,7 @@ The `kadtest1` directory itself contains two subdirectories and a file:
 - `context.yaml`, a file containing all cluster's context information. More on this later.
 - `flux` for use by FluxCD. All Kubernetes manifests placed in this directory will be applied by FluxCD during its 
   initialization. Here, you will find the deployment manifest for KAD: kad.yaml.
+- `system`, for usage of future middleware deployments.
 
 File `clusters/kadtest1/flux/kad.yaml`:
 

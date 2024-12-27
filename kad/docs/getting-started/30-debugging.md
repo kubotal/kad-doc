@@ -2,7 +2,7 @@
 
 What to do when things don't work as expected?
 
-To illustrate this scenario, an error can be triggered by commenting out the `component.parameters.certificateIssuer` 
+To illustrate this scenario, an error can be triggered by commenting out the `component.parameters.clusterIssuer` 
 attribute of `podinfo2`, while leaving the `tls` flag set to `true`.
 
 Once this modification is propagated, you will notice that the READY status of the container included in the 
@@ -30,7 +30,7 @@ time="2024-12-20T11:36:47Z" level=info msg=Apply apiVersion=source.toolkit.fluxc
 time="2024-12-20T11:36:47Z" level=info msg=Apply apiVersion=helm.toolkit.fluxcd.io/v2 dryRun=false kind=HelmRelease name=podinfo1 namespace=flux-system
 time="2024-12-20T11:36:47Z" level=info msg=Apply apiVersion=source.toolkit.fluxcd.io/v1 dryRun=false kind=HelmRepository name=https---stefanprodan-github-io-podinfo-1h-unpr namespace=flux-system
 time="2024-12-20T11:36:47Z" level=info msg="Reconciliation finished with 2 error(s)" count=2 logger=watcherReconciler
-time="2024-12-20T11:36:47Z" level=info msg=Error error="error on applying componentRelease 'podinfo2' componentRelease[podinfo2] (file:/work/watcher/primary-sources/flux-system/clusters/kadtest1/deployments/podinfo2.yaml, path:/): error while building model: component[podinfo:0.2.0] (file:/work/watcher/primary-sources/flux-system/components/apps/podinfo-0.2.0.yaml, path:/): error on 'values' property: error while rendering tmpl: template: :6:39: executing \"\" at <required \"`.Parameters.certificateIssuer` must be defined if tls: true\" .Parameters.certificateIssuer>: error calling required: `.Parameters.certificateIssuer` must be defined if tls: true\n" logger=watcherReconciler
+time="2024-12-20T11:36:47Z" level=info msg=Error error="error on applying componentRelease 'podinfo2' componentRelease[podinfo2] (file:/work/watcher/primary-sources/flux-system/clusters/kadtest1/deployments/podinfo2.yaml, path:/): error while building model: component[podinfo:0.2.0] (file:/work/watcher/primary-sources/flux-system/components/apps/podinfo-0.2.0.yaml, path:/): error on 'values' property: error while rendering tmpl: template: :6:39: executing \"\" at <required \"`.Parameters.clusterIssuer` must be defined if tls: true\" .Parameters.clusterIssuer>: error calling required: `.Parameters.clusterIssuer` must be defined if tls: true\n" logger=watcherReconciler
 time="2024-12-20T11:36:47Z" level=info msg=Error error="cleaner is enabled in configuration but clenup can't be performed with errors" logger=watcherReconciler
 time="2024-12-20T11:36:54Z" level=info msg="healthz check failed" logger=controller-runtime.healthz statuses="[{}]"
 ```
@@ -39,7 +39,7 @@ If it is an update, the previous version will remain untouched, and the applicat
 
 It is also possible that everything is correct at the KAD level, but the error lies within the deployment itself.
 
-To simulate this scenario, you can restore the definition of the `component.parameters.certificateIssuer` attribute 
+To simulate this scenario, you can restore the definition of the `component.parameters.clusterIssuer` attribute 
 and comment out the definition of the `fqdn` parameter.
 
 After committing and pushing the changes to Git, and after a propagation delay, you will notice that there is no longer 

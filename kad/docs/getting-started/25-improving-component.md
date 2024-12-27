@@ -29,14 +29,14 @@ components:
       ingressClassName: nginx
       fqdn: # TBD
       tls: false
-      certificateIssuer: # TBD if tls == true
+      clusterIssuer: # TBD if tls == true
     values: |
       ingress:
         enabled: true
         className: nginx
         {{- if .Parameters.tls }}
         annotations:
-          cert-manager.io/cluster-issuer: {{ required "`.Parameters.certificateIssuer` must be defined if tls: true" .Parameters.certificateIssuer}}
+          cert-manager.io/cluster-issuer: {{ required "`.Parameters.clusterIssuer` must be defined if tls: true" .Parameters.clusterIssuer}}
         {{- end }}
         hosts:
           - host: {{ .Parameters.fqdn }}
@@ -56,7 +56,7 @@ The first difference is that the version number has been incremented.
 Two additional `parameters` have been added:
 
 - `tls`: A boolean to enable or disable the secure protocol.
-- `certificateIssuer`: The `ClusterIssuer` that will be used to generate the certificate used by the ingress controller.
+- `clusterIssuer`: The `ClusterIssuer` that will be used to generate the certificate used by the ingress controller.
 
 The template defined by the `values` attribute has also been updated to account for the optional TLS configuration, 
 adapting it to the format required by the Helm Chart of `podinfo`.
@@ -83,14 +83,14 @@ componentReleases:
         ingressClassName: # To be set if != nginx
         fqdn: podinfo2.ingress.kadtestX.k8s.local # To adjust to your local context
         tls: true
-        certificateIssuer: kad # To adjust to your local context
+        clusterIssuer: kad # To adjust to your local context
     namespace: podinfo2
 ```
 
 As usual, some parameters may need adjustment:
 
 - `fqdn`, at least to replace kadtestX
-- `certificateIssuer`: If you performed the deployment on kind, as stated in previous chapters, `kad` is the appropriate 
+- `clusterIssuer`: If you performed the deployment on kind, as stated in previous chapters, `kad` is the appropriate 
 value. Otherwise, the value depends of your cluster configuration.  
 
 After committing and pushing this addition, you should have a new pod `podinfo2` and a new `ingress` kubernetes object.
@@ -110,7 +110,7 @@ The principle is therefore not to modify a component that has been deployed but 
 Once all associated deployments have been migrated to the new version, the initial component can be safely removed.
 
 As a matter of exercise, you may update the `podinfo1` `componentRelease` to change the component version number. 
-You will also need to set `tls: true` and the `certificateIssuer` value.
+You will also need to set `tls: true` and the `clusterIssuer` value.
 
 
 

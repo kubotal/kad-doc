@@ -366,7 +366,7 @@ To access the URLs you will deploy later, these URLs must resolve to `localhost`
 local `/etc/hosts` file as the following:
 
 ```
-127.0.0.1	localhost podinfo1.ingress.kadtest2.k8s.local podinfo2.ingress.kadtest2.k8s.local kad.ingress.kadtest2.k8s.local
+127.0.0.1	localhost podinfo1.ingress.kadtest2.k8s.local podinfo2.ingress.kadtest2.k8s.local podinfo3.ingress.kadtest2.k8s.local kad.ingress.kadtest2.k8s.local
 ```
 
 These values anticipate what will be deployed later in these tutorials.
