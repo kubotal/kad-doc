@@ -43,7 +43,7 @@ For example, a valid file might look like this:
 
 ???+ abstract "podinfo12.yaml"
 
-    ```
+    ``` { .yaml }
     componentReleases:
       - name: podinfo1
         component:

@@ -13,43 +13,43 @@ If you are using the Kind cluster as described earlier, these prerequisites are 
 
 This new version of the component is already defined in the GIT repository, at the following location:
 
-File: `components/apps/pod-info-0.2.0.yaml`
+???+ abstract "components/apps/pod-info-0.2.0.yaml"
 
-```
-components:
-  - name: podinfo
-    version: 0.2.0
-    source:
-      defaultVersion: 6.7.1
-      helmRepository:
-        url: https://stefanprodan.github.io/podinfo
-        chart: podinfo
-    allowCreateNamespace: true
-    parameters:
-      ingressClassName: nginx
-      fqdn: # TBD
-      tls: false
-      clusterIssuer: # TBD if tls == true
-    values: |
-      ingress:
-        enabled: true
-        className: nginx
-        {{- if .Parameters.tls }}
-        annotations:
-          cert-manager.io/cluster-issuer: {{ required "`.Parameters.clusterIssuer` must be defined if tls: true" .Parameters.clusterIssuer}}
-        {{- end }}
-        hosts:
-          - host: {{ .Parameters.fqdn }}
-            paths:
-              - path: /
-                pathType: ImplementationSpecific
-        {{- if .Parameters.tls }}
-        tls:
-          - secretName: {{ .Meta.componentRelease.name }}-tls
+    ``` { .yaml }
+    components:
+      - name: podinfo
+        version: 0.2.0
+        source:
+          defaultVersion: 6.7.1
+          helmRepository:
+            url: https://stefanprodan.github.io/podinfo
+            chart: podinfo
+        allowCreateNamespace: true
+        parameters:
+          ingressClassName: nginx
+          fqdn: # TBD
+          tls: false
+          clusterIssuer: # TBD if tls == true
+        values: |
+          ingress:
+            enabled: true
+            className: nginx
+            {{- if .Parameters.tls }}
+            annotations:
+              cert-manager.io/cluster-issuer: {{ required "`.Parameters.clusterIssuer` must be defined if tls: true" .Parameters.clusterIssuer}}
+            {{- end }}
             hosts:
-              - {{ .Parameters.fqdn }}
-        {{- end }}
-```
+              - host: {{ .Parameters.fqdn }}
+                paths:
+                  - path: /
+                    pathType: ImplementationSpecific
+            {{- if .Parameters.tls }}
+            tls:
+              - secretName: {{ .Meta.componentRelease.name }}-tls
+                hosts:
+                  - {{ .Parameters.fqdn }}
+            {{- end }}
+    ```
 
 The first difference is that the version number has been incremented.
 
@@ -69,23 +69,24 @@ The goal here is to name the secret that stores the certificate. Therefore, we n
 
 To deploy a component with this version, you may create a new file in Git in the deployment folder:
 
-File: `cluster/kadtestX/deployments/podinfo2.yaml`
-```
-componentReleases:
-  - name: podinfo2
-    component:
-      name: podinfo
-      version: 0.2.0
-      config:
-        install:
-          createNamespace: true
-      parameters:
-        ingressClassName: # To be set if != nginx
-        fqdn: podinfo2.ingress.kadtestX.k8s.local # To adjust to your local context
-        tls: true
-        clusterIssuer: kad # To adjust to your local context
-    namespace: podinfo2
-```
+???+ abstract "cluster/kadtestX/deployments/podinfo2.yaml"
+
+    ``` { .yaml .copy }
+    componentReleases:
+      - name: podinfo2
+        component:
+          name: podinfo
+          version: 0.2.0
+          config:
+            install:
+              createNamespace: true
+          parameters:
+            ingressClassName: # To be set if != nginx
+            fqdn: podinfo2.ingress.kadtestX.k8s.local # To adjust to your local context
+            tls: true
+            clusterIssuer: kad # To adjust to your local context
+        namespace: podinfo2
+    ```
 
 As usual, some parameters may need adjustment:
 

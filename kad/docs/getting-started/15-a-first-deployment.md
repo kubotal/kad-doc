@@ -10,38 +10,41 @@ In KAD, the base deployable unit is called a `component`. A `compoonent` is in f
 
 You will find a first sample of such object in the Git repository:
 
-File: `components/apps/pod-info-0.1.0.yaml`
+???+ abstract "components/apps/pod-info-0.1.0.yaml"
 
-``` yaml
-components:
-  - name: podinfo
-    version: 0.1.0
-    source:
-      defaultVersion: 6.7.1
-      helmRepository:
-        url: https://stefanprodan.github.io/podinfo
-        chart: podinfo
-    allowCreateNamespace: true
-    parameters:
-      ingressClassName: nginx
-      fqdn: # TBD
-    values: |
-      ingress:
-        enabled: true
-        className: {{ .Parameters.ingressClassName }}
-        hosts:
-          - host: {{ .Parameters.fqdn }}
-            paths:
-              - path: /
-                pathType: ImplementationSpecific
-
-```
+    ``` { .yaml } 
+    components:
+      - name: podinfo
+        version: 0.1.0
+        source:
+          defaultVersion: 6.7.1
+          helmRepository:
+            url: https://stefanprodan.github.io/podinfo
+            chart: podinfo
+        allowCreateNamespace: true
+        parameters:
+          ingressClassName: nginx
+          fqdn: # TBD
+        values: |
+          ingress:
+            enabled: true
+            className: {{ .Parameters.ingressClassName }}
+            hosts:
+              - host: {{ .Parameters.fqdn }}
+                paths:
+                  - path: /
+                    pathType: ImplementationSpecific
+    
+    ```
 
 - A component has a `name` and a `version`attributes. Note that the version of the component is not related to the version of the 
 referenced Helm chart.
 
-- The `source` sub-element references the Helm chart that will be deployed. The version of this chart can be specified 
-during deployment. If not specified, the value of `defaultVersion` will be used.
+  - The `source` sub-element references the Helm chart that will be deployed. The version of this chart can be specified 
+  during deployment. If not specified, the value of `defaultVersion` will be used.
+
+    The source is of type `helmRepository`. The authors of `podinfo` provide such repository. Depending of the situation, 
+    a source can also be a `gitRepository`, or an `OCIRepository`. More on this later in this doc. 
 
 - The `allowCreateNamespace` attribute allows the creation of the namespace specified during deployment, if it does not
 already exist.
@@ -70,22 +73,23 @@ which will be handled by FluxCD to proceed with the deployment of the Helm chart
 
 Here is a first example of the deployment of a `componentRelease`:
 
-File: `clusters/kadtestX/deployments/_podinfo1.yaml`
 
-``` yaml
-componentReleases:
-  - name: podinfo1
-    component:
-      name: podinfo
-      version: 0.1.0
-      config:
-        install:
-          createNamespace: true
-      parameters:
-        # ingressClassName: # To be set if != nginx
-        fqdn: podinfo1.ingress.kadtestX.k8s.local # To adjust to your local context
-    namespace: podinfo1
-```
+???+ abstract "clusters/kadtestX/deployments/_podinfo1.yaml"
+
+    ``` { .yaml } 
+    componentReleases:
+      - name: podinfo1
+        component:
+          name: podinfo
+          version: 0.1.0
+          config:
+            install:
+              createNamespace: true
+          parameters:
+            # ingressClassName: # To be set if != nginx
+            fqdn: podinfo1.ingress.kadtestX.k8s.local # To adjust to your local context
+        namespace: podinfo1
+    ```
 
 - The `name` of this deployment must be globally unique for a cluster. It will also be used as name for the helmRelease resource.
 - Next, there is the reference to the `component` being used, along with its version.

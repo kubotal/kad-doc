@@ -98,7 +98,7 @@ subdirectory under `clusters`. You must also update this name in the `spec.value
 The bootstrap process will modify the content of the repository. Therefore, you need to provide it with a GitHub token 
 that has the appropriate permissions. (You can find more detailed information on this aspect in the [FluxCD documentation](https://fluxcd.io/flux/installation/bootstrap/github/#github-pat).)
 
-```
+``` bash
 export GITHUB_TOKEN=<Your GitHub token>
 ```
 
@@ -106,7 +106,7 @@ Then you can proceed withe the bootstrap.
 
 If the repository is in your personal GitHub account:
 
-``` shell
+``` bash
 flux bootstrap github \
 --owner=<GitHub user> \
 --repository=<Repository name> \
@@ -119,7 +119,7 @@ flux bootstrap github \
 
 Or if the repository is in an organization account:
 
-``` shell
+``` bash
 flux bootstrap github \
 --owner=<GitHub organization> \
 --repository=<Repository name> \
@@ -133,7 +133,7 @@ flux bootstrap github \
 
 The output should look like this:
 
-``` shell
+``` bash
 ► connecting to github.com
 ► cloning branch "main" from Git repository "https://github.com/myorga/kad-infra1.git"
 ✔ cloned repository

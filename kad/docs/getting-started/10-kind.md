@@ -94,7 +94,7 @@ root that will be taken into account by KAD. More on that later.
 
 Run the following commands to create the cluster.
 
-```
+``` bash
 cat >/tmp/kadtest2-config.yaml <<EOF
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
@@ -119,7 +119,7 @@ Note the `extraPortMapping` configuration, which will later allow access to the 
 
 The output should look like this:
 
-```
+``` bash
 Creating cluster "kadtest2" ...
  ✓ Ensuring node image (kindest/node:v1.31.0) 🖼
  ✓ Preparing nodes 📦
@@ -136,7 +136,7 @@ kubectl cluster-info --context kind-kadtest2
 
 Then you can check the new cluster is up and running:
 
-```
+``` bash
 $ kubectl get pods -A
 NAMESPACE            NAME                                             READY   STATUS    RESTARTS   AGE
 kube-system          coredns-6f6b679f8f-hlrms                         0/1     Pending   0          11s
@@ -291,7 +291,7 @@ flux bootstrap github \
 
 The output should look like this:
 
-```
+``` bash
 ► connecting to github.com
 ► cloning branch "main" from Git repository "https://github.com/kubotal/kad-infra-doc.git"
 ✔ cloned repository
@@ -365,13 +365,13 @@ The installation process will attach an ingress controller to ports 80 and 443 o
 To access the URLs you will deploy later, these URLs must resolve to `localhost`. The simplest solution is to modify the 
 local `/etc/hosts` file as the following:
 
-```
+``` bash
 127.0.0.1	localhost podinfo1.ingress.kadtest2.k8s.local podinfo2.ingress.kadtest2.k8s.local podinfo3.ingress.kadtest2.k8s.local kad.ingress.kadtest2.k8s.local
 ```
 
 These values anticipate what will be deployed later in these tutorials.
 
-> Unfortunately, this method does not allow defining wildcard DNS entries (e.g., `*.ingress.kadtest2.k8s.local`). Installing alternatives that provide this functionality (such as dnsmasq) is outside the scope of this documentation.
+> Unfortunately, this method does not allow defining wildcard DNS entries (e.g., `*.ingress.kadtest2.k8s.local`). Installing alternatives that provide this functionality (such as `dnsmasq`) is outside the scope of this documentation.
 
 You can now follow up with the [first deployment](./15-a-first-deployment.md) part
 

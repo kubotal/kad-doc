@@ -8,12 +8,13 @@ nav:
     - "Installation on kind": getting-started/10-kind.md
     - "A first deployment": getting-started/15-a-first-deployment.md
     - "The deployment process": getting-started/20-the-deployment-process.md
-    - "improving component": getting-started/25-improving-component.md
+    - "Improving component": getting-started/25-improving-component.md
     - "Debugging": getting-started/30-debugging.md
     - "The context": getting-started/35-context.md
     - "The KAD CLI": getting-started/40-kadcli.md
-    - "Application stack": getting-started/45-stack.md
+    - "OCI and GIT repository sources": getting-started/45-repository-source.md
     - "Dependencies": getting-started/50-dependencies.md
+    - "Application stack": getting-started/55-stack.md
   - "User guide":
     - "Concepts and entities": guide/10-concepts-overview.md
     - "Schemas": guide/15-schemas.md
@@ -55,6 +56,9 @@ theme:
     - navigation.footer
 #    - content.code.copy
 #    - content.code.select
+
+extra_css:
+  - assets/styles/extra.css
 
 markdown_extensions:
   - pymdownx.highlight:

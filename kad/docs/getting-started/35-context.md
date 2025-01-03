@@ -32,105 +32,112 @@ This context will then be accessible in the data model used during the rendering
 
 For example, here is a new version of the `podinfo` component that will make use of it:
 
-File: `components/apps/podinfo-0.3.0.yaml`
 
-``` yaml
-components:
-  - name: podinfo
-    version: 0.3.0
-    source:
-      defaultVersion: 6.7.1
-      helmRepository:
-        url: https://stefanprodan.github.io/podinfo
-        chart: podinfo
-    allowCreateNamespace: true
-    parameters:
-      hostname: # TBD
-      tls: false
-    values: |
-      ingress:
-        enabled: true
-        className: {{ .Context.ingress.className }}
-        {{- if .Parameters.tls }}
-        annotations:
-          cert-manager.io/cluster-issuer: {{ required "`.Context.ingress.clusterIssuer` must be defined if tls: true" .Context.ingress.clusterIssuer}}
-        {{- end }}
-        hosts:
-          - host: {{ .Parameters.hostname }}.{{ .Context.ingress.hostPostfix }}
-            paths:
-              - path: /
-                pathType: ImplementationSpecific
-        {{- if .Parameters.tls }}
-        tls:
-          - secretName: {{ .Meta.componentRelease.name }}-tls
+???+ abstract "components/apps/pod-info-0.3.0.yaml"
+
+    ``` { .yaml }
+    components:
+      - name: podinfo
+        version: 0.3.0
+        source:
+          defaultVersion: 6.7.1
+          helmRepository:
+            url: https://stefanprodan.github.io/podinfo
+            chart: podinfo
+        allowCreateNamespace: true
+        parameters:
+          hostname: # TBD
+          tls: false
+        values: |
+          ingress:
+            enabled: true
+            className: {{ .Context.ingress.className }}
+            {{- if .Parameters.tls }}
+            annotations:
+              cert-manager.io/cluster-issuer: {{ required "`.Context.ingress.clusterIssuer` must be defined if tls: true" .Context.ingress.clusterIssuer}}
+            {{- end }}
             hosts:
-              - {{ .Parameters.hostname }}.{{ .Context.ingress.hostPostfix }}
-        {{- end }}
-```
+              - host: {{ .Parameters.hostname }}.{{ .Context.ingress.hostPostfix }}
+                paths:
+                  - path: /
+                    pathType: ImplementationSpecific
+            {{- if .Parameters.tls }}
+            tls:
+              - secretName: {{ .Meta.componentRelease.name }}-tls
+                hosts:
+                  - {{ .Parameters.hostname }}.{{ .Context.ingress.hostPostfix }}
+            {{- end }}
+    ```
 
 
-The structure of the context is flexible. However, it must be consistent with the various components that will use it.
+The structure of the `context` is flexible. However, it must be consistent with the various components that will use it.
 
 ## Deployment
 
 For deployment [on an existing cluster](./05-installation-existing-cluster.md), the context is defined in the file:
 
-file: `clusters/kadtest1/context.yaml`
-
-``` yaml
-context:
-
-  ingress:
-    className: nginx
-    clusterIssuer: cluster-issuer1
-    hostPostfix: ingress.kadtest1.k8s.local
-
-  _clusterRoles:
-    loadBalancer: true
-    ingress: true
-```
+???+ abstract "clusters/kadtest1/context.yaml"
+    ``` { .yaml }
+    context:
+    
+      ingress:
+        className: nginx
+        clusterIssuer: cluster-issuer1
+        hostPostfix: ingress.kadtest1.k8s.local
+    
+      _clusterRoles:
+        loadBalancer: true
+        ingress: true
+    ```
 
 
 And for the [kind cluster](./10-kind.md):
 
 
-file: `clusters/kadtest2/context.yaml`
+???+ abstract "clusters/kadtest1/context.yaml"
 
-``` yaml
-context:
-
-  ingress:
-    className: nginx
-    clusterIssuer: kad
-    hostPostfix: ingress.kadtest2.k8s.local
-
-  _clusterRoles:
-    loadBalancer: true
-```
+    ``` { .yaml }
+    context:
+    
+      ingress:
+        className: nginx
+        clusterIssuer: kad
+        hostPostfix: ingress.kadtest2.k8s.local
+    
+      _clusterRoles:
+        loadBalancer: true
+    ```
 
 Variables starting with the character '_' are reserved by KAD.
 
-In this example, the `_clusterRoles` block pertains to dependency management, a topic that will be addressed later.
+> In this example, the `_clusterRoles` block pertains to dependency management, a topic that will be addressed later.
 
 It may therefore be necessary to adjust the values (especially in the case of an existing cluster). 
-Then, deployment can proceed by creating a new componentRelease.
 
-``` yaml
-componentReleases:
-  - name: podinfo3
-    component:
-      name: podinfo
-      version: 0.3.0
-      config:
-        install:
-          createNamespace: true
-      parameters:
-        hostname: podinfo3
-        tls: true
-    namespace: podinfo3
-```
+Then, deployment can proceed by creating a new `componentRelease` in the `deployment` folder:
 
-Using `context` simplifies the parameters to be provided, now reflecting only deployment-related choices rather than infrastructure constraints.
+
+???+ abstract "cluster/kadtestX/deployments/podinfo3.yaml"
+
+    ``` { .yaml .copy }
+    componentReleases:
+      - name: podinfo3
+        component:
+          name: podinfo
+          version: 0.3.0
+          config:
+            install:
+              createNamespace: true
+          parameters:
+            hostname: podinfo3
+            tls: true
+        namespace: podinfo3
+    ```
+
+Using `context` simplifies the parameters to be provided, now reflecting only deployment-related choices rather than 
+infrastructure constraints.
+
+> The `componentRelease` is now independent of the cluster configuration. This is of great value if you manage several clusters.
 
 # Context Construction
 

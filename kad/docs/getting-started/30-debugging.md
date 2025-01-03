@@ -8,7 +8,7 @@ attribute of `podinfo2`, while leaving the `tls` flag set to `true`.
 Once this modification is propagated, you will notice that the READY status of the container included in the 
 `kad-controller` pod is set to 0.
 
-```
+``` bash
 $ kubectl get pods -n flux-system
 NAME                                       READY   STATUS    RESTARTS      AGE
 helm-controller-6f558f6c5d-pk5v9           1/1     Running   1 (93m ago)   2d1h
@@ -20,7 +20,7 @@ source-controller-6d597849c8-djq46         1/1     Running   1 (93m ago)   2d1h
 
 Examining the logs of the kad-controller pod will reveal the following error:
 
-```
+``` bash
 $ kubectl logs -n flux-system kad-controller-5459b95498-zb8rz
 ....
 time="2024-12-20T11:36:47Z" level=info msg="-- RECONCILER --" logger=watcherReconciler object="flux-system:flux-system"
@@ -45,7 +45,7 @@ and comment out the definition of the `fqdn` parameter.
 After committing and pushing the changes to Git, and after a propagation delay, you will notice that there is no longer 
 an error in the `kad-controller` pod.
 
-```
+``` bash
 $ kubectl get pods -n flux-system
 NAME                                       READY   STATUS    RESTARTS        AGE
 helm-controller-6f558f6c5d-pk5v9           1/1     Running   1 (3h30m ago)   2d3h
@@ -57,7 +57,7 @@ source-controller-6d597849c8-djq46         1/1     Running   1 (3h30m ago)   2d3
 
 However, the error will now appear at the level of the corresponding helmRelease resource.
 
-```
+``` bash
 $ kubectl get helmReleases -n flux-system
 NAME             AGE    READY   STATUS
 kad-controller   2d3h   True    Helm upgrade succeeded for release flux-system/kad-controller.v3 with chart kad-controller@0.6.0-snapshot+7fb305b8c68d
