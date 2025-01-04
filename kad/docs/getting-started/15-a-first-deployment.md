@@ -190,6 +190,6 @@ To make it invisible to KAD, you can:
 - Rename the file with a leading _ character
 
 If this behavior is considered risky (for example, if the application contains persistent data), several safeguards 
-can be implemented. A dedicated chapter is provided to cover this aspect in detail.
+can be implemented. A [dedicated chapter](./xxxxx.md) is provided to cover this aspect in detail.
 
 > The created namespace is NOT deleted

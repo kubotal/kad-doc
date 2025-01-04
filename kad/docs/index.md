@@ -18,7 +18,9 @@ KAD is a GitOps engines. This means the current state of the cluster is fully de
 - If a change is performed directly on the cluster, the engine will override it. (Exception can be defined) 
 
 KAD uses FluxCD, another GitOps engine under the hood. KAD added value lies in its ability to facilitate and 
-industrialize the configuration of applications to be deployed. 
+industrialize the configuration of applications to be deployed.
+
+![overview](images/kad0.png)
 
 Most applications that can be deployed on Kubernetes come with a Helm chart. Moreover, this Helm chart is generally
 highly flexible, designed to accommodate as many contexts as possible. This can make its configuration quite complex.
@@ -32,8 +34,6 @@ efficiency and reliability.
 
 KAD is therefore a tool that allows Platform Engineers to package applications in a way that makes it easy for less
 technical users (Developers, AppOps, etc.) to deploy them, by abstracting away most of the underlying technical environment details.
-
-![overview](images/kad0.png)
 
 Beside user applications, these GitOps principle and tools can also by applied on system components (ingress, load
 balancers, K8s operators, ...).

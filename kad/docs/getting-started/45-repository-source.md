@@ -120,7 +120,7 @@ Key notes:
   See the [FluxCD documentation](https://fluxcd.io/flux/components/source/api/v1/#source.toolkit.fluxcd.io/v1.GitRepositoryRef) for details.
 - FluxCD archives the repository's content locally. To reduce the load, this archiving can be restricted to the 
   necessary files using the `ignore` attribute, which uses `.gitignore`-style syntax.
-- The component leverages the `context` defined earlier.
+- The component leverages the `context` defined earlier. It must be properly set.
 
 ### The FluxCD `gitRepository` Object
 
@@ -394,3 +394,14 @@ status:
   phase: Active
 
 ```
+
+### Removal
+
+To delete our stack, you simply need to remove the corresponding file in the `deployment` directory. 
+
+One of the consequences of explicitly creating the namespace as a `component` is that it will also be deleted.
+
+If this behavior is considered risky, several safeguards
+can be implemented. A [dedicated chapter](./xxxxx.md) is provided to cover this aspect in detail.
+
+
