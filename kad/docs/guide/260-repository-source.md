@@ -402,6 +402,6 @@ To delete our stack, you simply need to remove the corresponding file in the `de
 One of the consequences of explicitly creating the namespace as a `component` is that it will also be deleted.
 
 If this behavior is considered risky, several safeguards
-can be implemented. A [dedicated chapter](./xxxxx.md) is provided to cover this aspect in detail.
+can be implemented. A [dedicated chapter](./290-deletion.md) is provided to cover this aspect in detail.
 
 

@@ -48,5 +48,5 @@ KAD need at least a naked Kubernetes cluster with an API server up and running.
 
 For KAD administrators, understanding its logic is essential for proper configuration.
 
-If, for practical reasons, you do not follow the deployment process as outlined in the [Getting Started](./getting-started/initial-steps.md) section, 
+If, for practical reasons, you do not follow the deployment process as outlined in the [Getting Started](./getting-started/110-preparation.md) section, 
 it is still highly recommended to read it thoroughly. This section includes tutorials that provide a foundational understanding of the core concepts.

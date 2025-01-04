@@ -62,7 +62,7 @@ It can also be used to document all the values to be supplied. (By analogy, this
 `values.yaml` file included in any well-designed Helm chart.)
 
 This description only covers a subset of the possible attributes for a `component`. 
-You can find a more comprehensive description in the [Guide](../guide/component.md) section.
+You can find a more comprehensive description in the [Guide](../reference/520-components.md) section.
 
 ## The componentRelease object
 
@@ -135,7 +135,7 @@ NAME       CLASS   HOSTS                                 ADDRESS         PORTS  
 podinfo1   nginx   podinfo1.ingress.kadtestX.k8s.local   192.168.56.11   80      50s
 ```
 
-> If this is not the case, check the logs of the `kad-controller` pod in the `flux-system` namespace. More info on [Debugging](./30-debugging.md)
+> If this is not the case, check the logs of the `kad-controller` pod in the `flux-system` namespace. More info on [Debugging](../guide/230-debugging.md)
 
 It is assumed your DNS is configured to resolve this hostname to the ingress controller entrypoint:
 
@@ -190,6 +190,6 @@ To make it invisible to KAD, you can:
 - Rename the file with a leading _ character
 
 If this behavior is considered risky (for example, if the application contains persistent data), several safeguards 
-can be implemented. A [dedicated chapter](./xxxxx.md) is provided to cover this aspect in detail.
+can be implemented. A [dedicated chapter](../guide/290-deletion.md) is provided to cover this aspect in detail.
 
 > The created namespace is NOT deleted

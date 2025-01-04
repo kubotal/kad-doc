@@ -14,11 +14,11 @@ easily adapted for another one.
 
 You must also install the [FluxCD CLI client](https://fluxcd.io/flux/installation/#install-the-flux-cli) on your workstation.
 
-> If you do not have access to an appropriate cluster, you can perform a local deployment on your workstation, as described in the [following chapter](./10-kind.md).
+> If you do not have access to an appropriate cluster, you can perform a local deployment on your workstation, as described in the [following chapter](./130-kind.md).
 
 ## Configuration 
 
-Let’s examine the content of the repository you created in the [initial steps](initial-steps.md):
+Let’s examine the content of the repository you created in the [initial steps](./110-preparation.md):
 
 ```
 ├── README.md
@@ -176,5 +176,5 @@ source-controller-6d597849c8-djq46         1/1     Running   0          38m
 
 ```
 
-You can now follow up with the [first deployment](./15-a-first-deployment.md) part
+You can now follow up with the [first deployment](./140-a-first-deployment.md) part
 

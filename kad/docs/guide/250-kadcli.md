@@ -3,10 +3,10 @@
 
 ## Server deployment
 
-If you performed the installation from scratch using Kind, as described in a [previous chapter](./10-kind.md), 
+If you performed the installation from scratch using Kind, as described in a [previous chapter](../getting-started/130-kind.md), 
 the KAD server (`kad-webserver`) is already installed.
 
-For [installation on an existing cluster](./05-installation-existing-cluster.md), you need to activate it. 
+For [installation on an existing cluster](../getting-started/120-installation-existing-cluster.md), you need to activate it. 
 To do this, edit the following file:
 
 ???+ abstract "cluster/kadtest1/system/_kad-webserver.yaml"
@@ -113,7 +113,7 @@ Finally, make sure your DNS is configured to resolve the host `kad.ingress.kadte
 to the ingress entry point.
 
 For Kind clusters, this host must resolve to `localhost`. Refer to the `/etc/hosts` configuration described in the 
-[relevant chapter](./10-kind.md/#dns-configuration).
+[relevant chapter](../getting-started/130-kind.md/#dns-configuration).
 
 ## Client Installation
 

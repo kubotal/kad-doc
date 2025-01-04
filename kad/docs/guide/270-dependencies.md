@@ -290,7 +290,7 @@ context:
 ```
 
 > Indeed, in this last case, the `ingress-nginx` `component` depends on a `loadBalancer` role. 
-However, it appears that this function is fulfilled by the `portMappings` configuration defined during the [creation of the cluster](./10-kind.md).
+However, it appears that this function is fulfilled by the `portMappings` configuration defined during the [creation of the cluster](../getting-started/130-kind.md).
 
 These roles appear as provided by `_CLUSTER_` in the previous displays.
 

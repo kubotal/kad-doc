@@ -19,7 +19,7 @@ Additionally, the Kind cluster will be configured to use ports 80 and 443, so th
 
 ## Configuration
 
-Let’s examine the content of the repository you created in the [initial steps](initial-steps.md):
+Let’s examine the content of the repository you created in the [initial steps](./110-preparation.md):
 
 ```
 ├── README.md
@@ -373,5 +373,5 @@ These values anticipate what will be deployed later in these tutorials.
 
 > Unfortunately, this method does not allow defining wildcard DNS entries (e.g., `*.ingress.kadtest2.k8s.local`). Installing alternatives that provide this functionality (such as `dnsmasq`) is outside the scope of this documentation.
 
-You can now follow up with the [first deployment](./15-a-first-deployment.md) part
+You can now follow up with the [first deployment](./140-a-first-deployment.md) part
 

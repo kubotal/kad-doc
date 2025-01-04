@@ -74,7 +74,7 @@ The structure of the `context` is flexible. However, it must be consistent with 
 
 ## Deployment
 
-For deployment [on an existing cluster](./05-installation-existing-cluster.md), the context is defined in the file:
+For deployment [on an existing cluster](../getting-started/120-installation-existing-cluster.md), the context is defined in the file:
 
 ???+ abstract "clusters/kadtest1/context.yaml"
     ``` { .yaml }
@@ -91,7 +91,7 @@ For deployment [on an existing cluster](./05-installation-existing-cluster.md), 
     ```
 
 
-And for the [kind cluster](./10-kind.md):
+And for the [kind cluster](../getting-started/130-kind.md):
 
 
 ???+ abstract "clusters/kadtest1/context.yaml"

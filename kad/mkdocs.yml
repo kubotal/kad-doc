@@ -2,35 +2,36 @@ site_name: KAD
 
 nav:
   - Home: index.md
-  - "Getting started / Tutorials":
-    - "Preparation": getting-started/01-preparation.md
-    - "Using an existing Cluster": getting-started/05-installation-existing-cluster.md
-    - "Installation on kind": getting-started/10-kind.md
-    - "A first deployment": getting-started/15-a-first-deployment.md
-    - "The deployment process": getting-started/20-the-deployment-process.md
-    - "Improving component": getting-started/25-improving-component.md
-    - "Debugging": getting-started/30-debugging.md
-    - "The context": getting-started/35-context.md
-    - "The KAD CLI": getting-started/40-kadcli.md
-    - "OCI and GIT repository sources": getting-started/45-repository-source.md
-    - "Dependencies": getting-started/50-dependencies.md
-    - "Application stack": getting-started/55-stack.md
+  - "Getting started":
+    - "Preparation": getting-started/110-preparation.md
+    - "Using an existing Cluster": getting-started/120-installation-existing-cluster.md
+    - "Installation on kind": getting-started/130-kind.md
+    - "A first deployment": getting-started/140-a-first-deployment.md
   - "User guide":
-    - "Concepts and entities": guide/10-concepts-overview.md
-    - "Schemas": guide/15-schemas.md
-    - "KAD CLI": guide/25-kadcli.md
-    - "Git access": guide/30-git-access.md
-    - "Document": guide/35-document.md
-    - "loaders / multi-repositories": guide/40-loaders.md
-    - "GitRepository": guide/45-git-repository.md
-    - "Air Gap": guide/50-air-gap.md
-    - "Deletion and protection": guide/55-deletion.md
-    - "kad-controller configuration": guide/60-configuration.md
+    - "The deployment process": guide/210-the-deployment-process.md
+    - "Improving component": guide/220-improving-component.md
+    - "Debugging": guide/230-debugging.md
+    - "The context": guide/240-context.md
+    - "The KAD CLI": guide/250-kadcli.md
+    - "OCI and GIT repository sources": guide/260-repository-source.md
+    - "Dependencies": guide/270-dependencies.md
+    - "Application stack": guide/280-stack.md
+    - "Deletion and protection": guide/290-deletion.md
+    - "Schemas": guide/300-schemas.md
+    - "Document": guide/310-document.md
+    - "loaders / multi-repositories": guide/320-loaders.md
+    - "Air Gap and Credentials": guide/330-air-gap-credentials.md
+    - "kad-controller configuration": guide/340-configuration.md
   - "References":
-    - "Components": reference/10-components.md
-    - "ComponentRelease": reference/15-component-release.md
-    - "Template": reference/20-template.md
-    - "TemplateRelease": reference/25-template-release.md
+    - "Concepts and entities": reference/510-concepts-overview.md
+    - "Components": reference/520-components.md
+    - "ComponentRelease": reference/530-component-release.md
+    - "Template": reference/540-template.md
+    - "TemplateRelease": reference/550-template-release.md
+    - "GitRepository": reference/560-git-repository.md
+    - "Document": reference/570-document.md
+    - "loader": reference/580-loader.md
+    - "KAD CLI": reference/590-kadcli.md
 
 theme:
 #  name: readthedocs
