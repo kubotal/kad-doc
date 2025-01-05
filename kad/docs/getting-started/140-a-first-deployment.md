@@ -1,8 +1,8 @@
 
 # A first deployment
 
-> This part is relevant whatever installation type you performed. For this reason, when the cluster name is specified, 
-it is set as `kadtestX`, to be replaced by `kadtest1` or `kadtest2`.
+> This section is relevant regardless of the type of installation you performed. For this reason, the cluster name 
+is specified as kadtestX, which should be replaced with kadtest1, kadtest2, or any other name you have chosen.
 
 ## The component object
 
@@ -46,8 +46,7 @@ referenced Helm chart.
     The source is of type `helmRepository`. The authors of `podinfo` provide such repository. Depending of the situation, 
     a source can also be a `gitRepository`, or an `OCIRepository`. More on this later in this doc. 
 
-- The `allowCreateNamespace` attribute allows the creation of the namespace specified during deployment, if it does not
-already exist.
+- The `allowCreateNamespace` attribute allows the creation of namespace by the `componentRelease` (See below)
 
 - The `values` element defines a template that will be rendered to generate the `values.yaml` file used for deploying 
 the Helm chart.
@@ -57,12 +56,12 @@ the Helm chart.
       which will be defined during deployment.
     - Although it may look like a `yaml` snippet, it is in fact a string, to allow insertion of template directive.
 
-- The `parameters` attribute allows default values to be set to complement those provided during deployment. 
+- The `parameters` attribute allows default values to be set to complement those provided during deployment (See below). 
 It can also be used to document all the values to be supplied. (By analogy, this serves the same purpose as the 
 `values.yaml` file included in any well-designed Helm chart.)
 
 This description only covers a subset of the possible attributes for a `component`. 
-You can find a more comprehensive description in the [Guide](../reference/520-components.md) section.
+You can find a more comprehensive description in the [reference](../reference/520-components.md) section.
 
 ## The componentRelease object
 

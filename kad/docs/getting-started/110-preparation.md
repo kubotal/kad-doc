@@ -19,12 +19,12 @@ Some of the following steps may involve modifying the content of this repository
 
 ## Installing the FluxCD CLI Client
 
-You'll need to install the FluxCD client on your workstation to proceed with its installation. Please refer to the [corresponding FluxCD documentation for detailed instructions](https://fluxcd.io/flux/get-started/#install-the-flux-cli).
+You'll need to install the FluxCD client on your workstation to proceed with its installation. Please refer to the [corresponding FluxCD documentation for detailed instructions](https://fluxcd.io/flux/installation/#install-the-flux-cli).
 
 ## Installation types
 
 Next, there are two variants of this installation, depending on your environment:
 
 - [On an existing cluster](120-installation-existing-cluster.md): This requires having an operational cluster, including an Ingress controller, suitable for this type of testing. This cluster must also have Internet access.
-- [From scratch](./130-kind.md): Using [Kind](https://kind.sigs.k8s.io/) allows you to create a minimal cluster on your workstation, which will then be enhanced by KAD with a set of extensions (Cert-manager, ingress, etc.).
+- [From scratch](./130-kind.md): Using [Kind](https://kind.sigs.k8s.io/) will allow you to create a minimal cluster on your workstation, which will then be enhanced by KAD with a set of extensions (Cert-manager, ingress, etc.).
 

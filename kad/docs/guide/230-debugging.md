@@ -2,6 +2,8 @@
 
 What to do when things don't work as expected?
 
+## Example 1
+
 To illustrate this scenario, an error can be triggered by commenting out the `component.parameters.clusterIssuer` 
 attribute of `podinfo2`, while leaving the `tls` flag set to `true`.
 
@@ -36,6 +38,8 @@ time="2024-12-20T11:36:54Z" level=info msg="healthz check failed" logger=control
 ```
 This is an error at the KAD level. The consequence is that KAD is unable to generate a new version of the `helmRelease` object. 
 If it is an update, the previous version will remain untouched, and the application will remain unchanged.
+
+## Example 2
 
 It is also possible that everything is correct at the KAD level, but the error lies within the deployment itself.
 
@@ -79,6 +83,7 @@ In general, in case of malfunctions, the objects to check are:
 - The Kubernetes/FluxCD `OCIRepositories` resources.
 
 
+KAD provides a CLI (Command Line Interface) tool that facilitates development and debugging. It will be discussed in a [later chapter](./250-kadcli.md)
 
 
 

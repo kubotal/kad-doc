@@ -2,16 +2,18 @@
 
 # OCI and GIT repository source
 
-We will now proceed with the deployment of two interconnected applications:
-
-- Redis
-- Redis Commander, a frontend interface for accessing Redis.
+This chapter is the first in a series based on the deployment of two interacting applications:
+ 
+- **Redis**, an in-memory data structure store used as a database, cache, and message broker.
+- **Redis Commander**, a web-based GUI tool for managing and interacting with Redis databases.
 
 ## Redis: OCI Repository
 
-For the Redis deployment, we use the chart provided by Bitnami. This chart is packaged as an OCI image.
+For the Redis deployment, we use the chart provided by 
+[Bitnami](https://github.com/bitnami/charts/tree/main/bitnami/redis). This chart is packaged as an OCI image.
 
-> This packaging format for Helm charts is becoming increasingly common due to its flexibility and its reliance on the same infrastructure as container images.
+> This packaging format for Helm charts is becoming increasingly common due to its flexibility and its reliance 
+on the same infrastructure as container images.
 
 Here is the component using This Chart:
 
@@ -118,7 +120,7 @@ Key notes:
 
 - The `ref` sub-element can refer to a branch (as in this example), a `tag`, a `commit` ID, a `semver`, or a `name`. 
   See the [FluxCD documentation](https://fluxcd.io/flux/components/source/api/v1/#source.toolkit.fluxcd.io/v1.GitRepositoryRef) for details.
-- FluxCD archives the repository's content locally. To reduce the load, this archiving can be restricted to the 
+- FluxCD archives the repository's content in the cluster. To reduce the load, this archiving can be restricted to the 
   necessary files using the `ignore` attribute, which uses `.gitignore`-style syntax.
 - The component leverages the `context` defined earlier. It must be properly set.
 
@@ -135,7 +137,7 @@ redis-commander   https://github.com/joeferner/redis-commander.git   12h   True 
 
 We find:
 
-- Our redis-commander repository.
+- Our `redis-commander` repository.
 - The initial Git repository created during the Flux bootstrap process.
 
 ## Deployment
@@ -237,7 +239,7 @@ This approach also allows adding resources such as `serviceAccounts`, `roles`, `
 For this purpose, a small Helm chart can be created, which can either be generic or specific to our application.
 
 Such a chart is provided in the `charts/namespace/1.0.0` directory of our Git repository. It enables the creation of a 
-namespace with optional parameters for labels and annotations. Note the convention that allows us to version this chart.
+namespace with optional parameters for `labels` and `annotations`. Note the directory convention that allows us to version this chart.
 
 Here is a first version of the component using this chart, along with the associated `gitRepository`:
 
@@ -352,7 +354,7 @@ Here's a new version of the deployment, using this last component.
         namespace: redis2
     ```
 
-As previously mentioned, simply copy this file into the deployment directory of your cluster 
+As previously explained, simply copy this file into the deployment directory of your cluster 
 (`cluster/kadTestX/deployments`), where it will automatically be processed by KAD, which will then handle its deployment.
 
 If everything goes well, three new `pods` should be created:

@@ -2,7 +2,7 @@
 
 This section will guide you through creating a Kubernetes cluster on your workstation using Docker and Kind.
 
-Subsequently, FluxCD and KAD will be installed, which will automatically deploy middleware components such as cert-manager and ingress-nginx.
+Subsequently, FluxCD and KAD will be installed, which will automatically deploy middleware components such as `cert-manager` and `ingress-nginx`.
 
 ## Prerequisite:
 
@@ -60,6 +60,8 @@ The `kadtest2` directory itself contains three subdirectories and a file:
 - `flux` for use by FluxCD. All Kubernetes manifests placed in this directory will be applied by FluxCD during its
   initialization. Here, you will find the deployment manifest for KAD: `kad.yaml`.
 
+Let's take a closer look at the configuration of KAD:
+
 File `clusters/kadtest2/flux/kad.yaml`:
 
 ``` yaml
@@ -94,7 +96,7 @@ root that will be taken into account by KAD. More on that later.
 
 Run the following commands to create the cluster.
 
-``` bash
+``` { .bash .copy }
 cat >/tmp/kadtest2-config.yaml <<EOF
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
@@ -113,9 +115,10 @@ EOF
 kind create cluster --config /tmp/kadtest2-config.yaml
 ```
 
-These commands will create a fully operational cluster with a single node serving as both the control-plane and the worker.
+These commands will create a fully operational cluster with a single node serving both as `control-plane` and as `worker`.
 
-Note the `extraPortMapping` configuration, which will later allow access to the ingress-controller from your workstation once this component is deployed.
+Note the `extraPortMapping` configuration, which will later allow access to the ingress-controller 
+from your workstation once this component is deployed.
 
 The output should look like this:
 
@@ -152,7 +155,9 @@ local-path-storage   local-path-provisioner-57c5987fd4-sxsqb          0/1     Pe
 
 ## Creating a Certificate Authority (CA)
 
-Securing HTTP Flux communications requires the use of certificates. In the Kubernetes ecosystem, these certificates 
+Securing HTTP Flux communications requires the use of certificates. 
+
+In the Kubernetes ecosystem, these certificates 
 can be automatically generated using [cert-manager](https://cert-manager.io/).
 
 `cert-manager` requires a Certificate Authority (CA). There are several options for this:
@@ -228,7 +233,7 @@ You can modify the SUBJECT variable to replace with your own attributes.
 
 Running this script will generate the `ca.crt` and `ca.key` files which constitute your new CA. This in a CA subfolder. 
 
-Store these files in a secure location, as the private key must remain confidential.
+Store these files in a **secure** and **private** location (not GIT), as the private key must remain confidential.
 
 Now save and run the following script:
 
@@ -253,8 +258,9 @@ It will store the CA in two secrets that will be accessed later by cert-manager.
 
 ## Bootstrap
 
-The bootstrap process will modify the content of the GIT repository. Therefore, you need to provide it with a GitHub token
-that has the appropriate permissions. (You can find more detailed information on this aspect in the [FluxCD documentation](https://fluxcd.io/flux/installation/bootstrap/github/#github-pat).)
+The bootstrap process will modify the content of the GIT repository. Therefore, you need to provide it with a GitHub 
+token (`PAT` for Personal Access Token) that has the appropriate permissions. (You can find more detailed information 
+on this aspect in the [FluxCD documentation](https://fluxcd.io/flux/installation/bootstrap/github/#github-pat).)
 
 ```
 export GITHUB_TOKEN=<Your GitHub token>
@@ -369,9 +375,11 @@ local `/etc/hosts` file as the following:
 127.0.0.1	localhost podinfo1.ingress.kadtest2.k8s.local podinfo2.ingress.kadtest2.k8s.local podinfo3.ingress.kadtest2.k8s.local kad.ingress.kadtest2.k8s.local
 ```
 
-These values anticipate what will be deployed later in these tutorials.
+These values anticipate what will be deployed later in this documentation.
 
-> Unfortunately, this method does not allow defining wildcard DNS entries (e.g., `*.ingress.kadtest2.k8s.local`). Installing alternatives that provide this functionality (such as `dnsmasq`) is outside the scope of this documentation.
+> Unfortunately, this method does not allow defining wildcard DNS entries (e.g., `*.ingress.kadtest2.k8s.local`). 
+Installing alternatives that provide this functionality (such as `dnsmasq`) is possible but outside the scope of 
+this documentation.
 
 You can now follow up with the [first deployment](./140-a-first-deployment.md) part
 

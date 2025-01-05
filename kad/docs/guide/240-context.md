@@ -7,7 +7,7 @@ In fact, these values are not tied to a specific deployment but are global for a
 
 KAD provides a mechanism to handle this kind of global variables: the `context`.
 
-The `context` is a variable container. It is unique to a KAD repository, and therefore to a cluster.
+The `context` is a variable container. It is unique to a cluster.
 
 It is defined in one or more `kadFile`, as shown in the example below.
 
@@ -24,7 +24,7 @@ context:
 
 In this example, we find variables that are global to the cluster and common to all deployments:
 
-- The ingress controller class (here, nginx).
+- The ingress controller class (here, `nginx`).
 - The issuer used for all ingresses.
 - The common and final part of the FQDN associated with the different ingresses.
 
@@ -86,7 +86,6 @@ For deployment [on an existing cluster](../getting-started/120-installation-exis
         hostPostfix: ingress.kadtest1.k8s.local
     
       _clusterRoles:
-        loadBalancer: true
         ingress: true
     ```
 
@@ -110,7 +109,7 @@ And for the [kind cluster](../getting-started/130-kind.md):
 
 Variables starting with the character '_' are reserved by KAD.
 
-> In this example, the `_clusterRoles` block pertains to dependency management, a topic that will be addressed later.
+> In this example, the `_clusterRoles` block pertains to dependency management, a topic that will be addressed [later](./270-dependencies.md).
 
 It may therefore be necessary to adjust the values (especially in the case of an existing cluster). 
 
@@ -134,7 +133,7 @@ Then, deployment can proceed by creating a new `componentRelease` in the `deploy
         namespace: podinfo3
     ```
 
-Using `context` simplifies the parameters to be provided, now reflecting only deployment-related choices rather than 
+Using `context` simplifies the `parameters` to be provided, now reflecting only deployment-related choices rather than 
 infrastructure constraints.
 
 > The `componentRelease` is now independent of the cluster configuration. This is of great value if you manage several clusters.
@@ -158,7 +157,6 @@ As an example, we can redefine our contexts as follows:
       ingress:
         className: nginx
         clusterIssuer: kad
-        hostPostfix: ingress.kadtest1.k8s.local
     ```
 
 - A file for the first cluster:
@@ -184,7 +182,7 @@ As an example, we can redefine our contexts as follows:
         hostPostfix: ingress.kadtest2.k8s.local
     ```
 
-The `clusterIssuer` of the first cluster overrides the general value.
+The `clusterIssuer` of the first cluster overrides the global value.
 
 > We removed the `_clusterRoles` block for clarity
 

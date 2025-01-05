@@ -71,3 +71,22 @@ In most cases, there will be a single primary source, which is the 'flux-system'
 
 All object are consolidated by KAD in an internal data structure called the 'referential' in this documentation.
 
+## Referential
+
+TODO
+
+## Loader
+
+TODO
+
+## Document
+
+TODO
+
+## Role
+
+TODO
+
+## Schema
+
+TODO

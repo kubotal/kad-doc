@@ -56,8 +56,10 @@ The `kadtest1` directory itself contains two subdirectories and a file:
 - `deployments`, intended to store the definitions of the deployed applications.
 - `context.yaml`, a file containing all cluster's context information. More on this later.
 - `flux` for use by FluxCD. All Kubernetes manifests placed in this directory will be applied by FluxCD during its 
-  initialization. Here, you will find the deployment manifest for KAD: kad.yaml.
+  initialization. Here, you will find the deployment manifest for KAD: `kad.yaml`.
 - `system`, for usage of future middleware deployments.
+
+Let's take a closer look at the configuration of KAD:
 
 File `clusters/kadtest1/flux/kad.yaml`:
 
@@ -95,7 +97,7 @@ subdirectory under `clusters`. You must also update this name in the `spec.value
 
 ## Bootstrap
 
-The bootstrap process will modify the content of the repository. Therefore, you need to provide it with a GitHub token 
+The bootstrap process will modify the content of the repository. Therefore, you need to provide it with a GitHub token (`PAT` for Personal Access Token)
 that has the appropriate permissions. (You can find more detailed information on this aspect in the [FluxCD documentation](https://fluxcd.io/flux/installation/bootstrap/github/#github-pat).)
 
 ``` bash
@@ -106,7 +108,7 @@ Then you can proceed withe the bootstrap.
 
 If the repository is in your personal GitHub account:
 
-``` bash
+``` { .bash .copy }
 flux bootstrap github \
 --owner=<GitHub user> \
 --repository=<Repository name> \
@@ -119,7 +121,7 @@ flux bootstrap github \
 
 Or if the repository is in an organization account:
 
-``` bash
+``` { .bash .copy }
 flux bootstrap github \
 --owner=<GitHub organization> \
 --repository=<Repository name> \
@@ -154,13 +156,14 @@ The output should look like this:
 The bootstrap command above does the following:
 
 - Adds Flux component manifests to the repository (In the `clusters/kadtest1/flux/flux-system` location)
-- Deploys Flux Components to your Kubernetes Cluster.
+- Deploys Flux components to your Kubernetes Cluster.
 - Create an SSH deploy key to be used by FluxCD controller to access the Git repository 
 - Configures Flux components to track the path `clusters/kadtest1/flux` in the repository.
-- As there is a manifest `kad.yaml` in this folder, deploy the `kad-controller`
+- As there is a manifest `kad.yaml` in this folder, apply it. This will create the `kad-controller` deployment.
 
 
-> If you have cloned locally the repository, perform a `git pull` to update your local workspace.
+> If you have cloned locally the repository, perform a git pull to update your local workspace with the modifications
+  performed by this process
 
 
 If installation is successful, several pods should be up and running in the `flux-system` namespace.

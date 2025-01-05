@@ -63,6 +63,8 @@ adapting it to the format required by the Helm Chart of `podinfo`.
 
 We can also notice the appearance of a new root object: `.Meta`, which allows retrieving the deployment name.
 
+> The exhaustive definition of the variables comprising the data model used here can be found in the [Reference](../reference/530-component-release.md) section.
+
 The goal here is to name the secret that stores the certificate. Therefore, we need a name that ensures its uniqueness.
 
 ## The new componentRelease

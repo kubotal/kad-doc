@@ -1,6 +1,12 @@
 
 # kadcli: the KAD CLI
 
+KAD provide a REST API for troubleshooting and management. A CLI client is also provided to use it easily. 
+
+This API is served by a `kad-websever` process, working alongside the `kad-controller`. 
+
+> Currently, `kad-webserver` require `ingress-nginx` as ingress controller.
+
 ## Server deployment
 
 If you performed the installation from scratch using Kind, as described in a [previous chapter](../getting-started/130-kind.md), 
@@ -29,8 +35,8 @@ To do this, edit the following file:
 - If you have changed the cluster name, adjust the `deploymentLocation` parameter.
 - If your ingress controller supports 'SSL passthrough' mode, you can set the `ssl` flag to `true`.
 
-This `componentRelease` references a `component` that relies on the context defined in the previous chapter. 
-It is, therefore, crucial that the context is configured as previously described.
+This `componentRelease` references a `component` that relies on the `context` defined in the previous chapter. 
+It is, therefore, crucial that the `context` is configured as previously described.
 
 You can find the definition of this component at the following location:
 
@@ -118,7 +124,7 @@ For Kind clusters, this host must resolve to `localhost`. Refer to the `/etc/hos
 ## Client Installation
 
 The `kadcli` client is a simple binary. You only need to download the version matching your KAD installation and
-architecture from the following link: https://github.com/kubotal/kad-controller/releases.
+architecture from the [following link](https://github.com/kubotal/kad-controller/releases).
 
 > To retrieve version of the KAD server:
     ``` bash
@@ -141,10 +147,10 @@ and a security token stored in a kubernetes `secret` (`flux-system:kad-webserver
 - `git`: Provides commands to list and modify contents in a specific Git directory.
 - `k8s`: Allows viewing certain Kubernetes resources.
 
-It is clear that the last two command groups overlap with kubectl and a Git client. 
+> It is clear that the last two command groups overlap with kubectl and a Git client. 
 They exist only because the underlying REST APIs are designed to be used by a web front end.
 
-An exhaustive list of commands for each group is provided in a dedicated chapter. Below are a few examples:
+An exhaustive list of commands for each group is provided in a [reference chapter](../reference/590-kadcli.md). Below are a few examples:
 
 - Perhaps the most useful: check errors.
     
@@ -196,7 +202,7 @@ An exhaustive list of commands for each group is provided in a dedicated chapter
 ## Curl commands
 
 If you want to access this API directly, for example to build some tools around KAD, you can use the `--curl` option 
-on almost all commands the generate the REST API call. 
+on almost all commands to generate the REST API call. 
 
 ```
 $ kadcli kad components list --curl

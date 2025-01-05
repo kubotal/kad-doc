@@ -3,28 +3,28 @@
 
 If we examine how the three components from the previous chapter are deployed, we observe that they are deployed independently at two levels:
 
-- KAD generates the three Helm releases in an undetermined order.
+- KAD generates the three `helmReleases` upfront, in an undetermined order.
 - FluxCD performs the corresponding deployments in parallel, with no concept of order or dependency.
 
-If the system works, it is because the applications are well-designed and operate with a retry logic until they function correctly.
+If the system works, it is because the applications are well-designed and operate with a retry logic until they reach a stable state.
 
-However, this approach can have its limitations. This is why KAD introduces a dependency system between deployments. 
+However, this approach have its limitations. This is why KAD introduces a dependency system between deployments. 
 
 FluxCD allows the definition of dependencies between `helmReleases`. 
 KAD leverages this feature internally but adds an abstraction: the concept of `role`.
 
-A deployment can fulfill one (or multiple) roles. Similarly, it can depend on one or more roles.
+A deployment can fulfill one (or multiple) `roles`. Similarly, it can depend on one or more `roles`.
 
 This abstraction provides much greater flexibility. For example, an application that exposes a web service outside
 the cluster depends on the presence of an ingress controller. It will therefore depend on a role named `ingress`, 
 regardless of whether this is provided by `nginx`, `Traefik`, `Kong`, or another solution.
 
 The provided role can be defined at the level of a `componentRelease` but also at the `component` level. 
-In the latter case, it applies to all `componentReleases` using that component.
+In the latter case, it applies to all `componentReleases` using that `component`.
 
 Similarly, dependencies can be defined at the `componentRelease` level or at the `component` level.
 
-Here is an updated version of our Redis stack, implementing this new functionality:
+Here is an updated version of our Redis stack, implementing this new feature:
 
 
 ???+ abstract "storehouse/redis-stack-3.yaml"
@@ -97,9 +97,9 @@ redis3-redis       2s     False   dependency 'flux-system/redis3-namespace' is n
 You will observe that KAD creates all the HelmReleases immediately. However, some are marked as waiting for a dependency.
 
 > Note that there may be a delay between the completion of one deployment and the initiation of the next. This delay
-can last up to 30 seconds. At the end of this chapter, instructions are provided on how to reduce this delay.
+can last up to 30 seconds. At the end of this chapter, instructions are provided on how to reduce this value.
 
-The deployment of the Redis cluster is also a process that is not immediate.
+The deployment of the Redis cluster is also a process that may take some time:
 
 ``` shell
 $ kubectl -n flux-system get helmReleases
@@ -141,7 +141,7 @@ NAME                               CLASS   HOSTS                               A
 redis3-commander-redis-commander   nginx   redis3.ingress.kadtest1.k8s.local   192.168.56.11   80, 443   4m13s
 ```
 
-You can also verify how the dependencies are reflected at the HelmReleases level:
+You can also verify how the dependencies are reflected at the FluxCD `helmRelease` level:
 
 ???+ abstract "kubectl -n flux-system get helmReleases redis3-commander -o yaml"
 
@@ -255,9 +255,9 @@ redis3-redis      redis3-namespace  redis3-namespace  YES
 ## `_CLUSTER_` roles
 
 It can be observed that the `componentRelease` `redis3-commander` depends on the roles we defined in the deployment 
-(`redis3-namespace` and `redis3-redis`), but also on an `ingress` role.
+(`redis3-namespace` and `redis3-redis`), but also on an role named `ingress`.
 
-> This role was defined at the `component` level. Indeed, the `componentRelease` references the `component` 
+> This dependency was defined at the `component` level. Indeed, the `componentRelease` references the `component` 
 in version `0.2.0`, which differs from the previous version only by the addition of a `dependsOn: [ingress]` 
 attribute. As mentioned earlier, this dependency applies to all releases of this `component`.
 
@@ -292,13 +292,13 @@ context:
 > Indeed, in this last case, the `ingress-nginx` `component` depends on a `loadBalancer` role. 
 However, it appears that this function is fulfilled by the `portMappings` configuration defined during the [creation of the cluster](../getting-started/130-kind.md).
 
-These roles appear as provided by `_CLUSTER_` in the previous displays.
+These roles appear as provided by `_CLUSTER_` in the `kadcli kad roles list ...` displays.
 
 ## Reducing latency on dependencies
 
 By default, a `componentRelease` waiting for the deployment of a dependency will check its status every 30 seconds.
 
-In the case of a long dependencies chain, this delay can become important.
+In the case of a long dependencies chain, this delay could be an inconvenient.
 
 It is possible to reduce this interval by adding an argument when launching the `helmRelease` controller.
 

@@ -34,7 +34,7 @@ generate FluxCD resources.
 The `kadfiles` entries are lists of files or directories that will be recursively explored. KAD will process all files that:
 
 - Have a `.yaml` extension (and not `.yml`)
-- Do not have names starting or ending with the character _.
+- Do not have base names starting or ending with the character _.
 - Similarly, directories with names starting or ending with _ will not be explored.
 
 These YAML files must be dictionaries of KAD object types, with each type containing a list of objects.
@@ -99,7 +99,7 @@ Except for the second `componentRelease` `'podinfo'`, it is equivalent to what w
 KAD does not impose any restrictions on how you organize your files. Similarly, the directory structure is entirely
 irrelevant to KAD. You can define all your objects in a single file or create one file per object. The result will be exactly the same.
 
-All objects collected by KAD are consolidated into a single internal repository, independent of their location in the file tree.
+All objects collected by KAD are consolidated into a single internal repository (or referential), independent of their location in the file tree.
 
 One consequence of this is that, for a given object type, the name must be globally unique (or the name/version pair if
 the object is of a versioned type).
