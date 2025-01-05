@@ -9,23 +9,25 @@
       
       
       
+        <link rel="prev" href="../270-dependencies/">
       
-        <link rel="next" href="getting-started/110-preparation/">
+      
+        <link rel="next" href="../290-deletion/">
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.47">
     
     
       
-        <title>KAD</title>
+        <title>Application stack - KAD</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.6f8fc17f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -44,9 +46,9 @@
       
     
     
-      <link rel="stylesheet" href="assets/styles/extra.css">
+      <link rel="stylesheet" href="../../assets/styles/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -72,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#kad-kubernetes-application-deployer" class="md-skip">
+        <a href="#application-stack" class="md-skip">
           Skip to content
         </a>
       
@@ -88,7 +90,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="KAD" class="md-header__button md-logo" aria-label="KAD" data-md-component="logo">
+    <a href="../.." title="KAD" class="md-header__button md-logo" aria-label="KAD" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -108,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Application stack
             
           </span>
         </div>
@@ -221,7 +223,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="KAD" class="md-nav__button md-logo" aria-label="KAD" data-md-component="logo">
+    <a href="../.." title="KAD" class="md-nav__button md-logo" aria-label="KAD" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -248,30 +250,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Home
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -280,53 +262,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#gitops-kad-fluxcd-helm" class="md-nav__link">
-    <span class="md-ellipsis">
-      GitOps, KAD, FluxCD, Helm....
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-kad-is-not" class="md-nav__link">
-    <span class="md-ellipsis">
-      What KAD is not
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#about-this-documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      About This Documentation
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -373,7 +308,7 @@
   
   
     <li class="md-nav__item">
-      <a href="getting-started/110-preparation/" class="md-nav__link">
+      <a href="../../getting-started/110-preparation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -394,7 +329,7 @@
   
   
     <li class="md-nav__item">
-      <a href="getting-started/120-installation-existing-cluster/" class="md-nav__link">
+      <a href="../../getting-started/120-installation-existing-cluster/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -415,7 +350,7 @@
   
   
     <li class="md-nav__item">
-      <a href="getting-started/130-kind/" class="md-nav__link">
+      <a href="../../getting-started/130-kind/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -436,7 +371,7 @@
   
   
     <li class="md-nav__item">
-      <a href="getting-started/140-a-first-deployment/" class="md-nav__link">
+      <a href="../../getting-started/140-a-first-deployment/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -461,17 +396,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -485,7 +422,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             User guide
@@ -499,7 +436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/210-the-deployment-process/" class="md-nav__link">
+      <a href="../210-the-deployment-process/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -520,7 +457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/220-improving-component/" class="md-nav__link">
+      <a href="../220-improving-component/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -541,7 +478,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/230-debugging/" class="md-nav__link">
+      <a href="../230-debugging/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -562,7 +499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/240-context/" class="md-nav__link">
+      <a href="../240-context/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -583,7 +520,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/250-kadcli/" class="md-nav__link">
+      <a href="../250-kadcli/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -604,7 +541,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/260-repository-source/" class="md-nav__link">
+      <a href="../260-repository-source/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -625,7 +562,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/270-dependencies/" class="md-nav__link">
+      <a href="../270-dependencies/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -643,10 +580,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="guide/280-stack/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -655,6 +601,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -667,7 +614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/290-deletion/" class="md-nav__link">
+      <a href="../290-deletion/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -688,7 +635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/300-schemas/" class="md-nav__link">
+      <a href="../300-schemas/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -709,7 +656,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/310-document/" class="md-nav__link">
+      <a href="../310-document/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -730,7 +677,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/320-loaders/" class="md-nav__link">
+      <a href="../320-loaders/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -751,7 +698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/330-air-gap-credentials/" class="md-nav__link">
+      <a href="../330-air-gap-credentials/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -772,7 +719,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/340-configuration/" class="md-nav__link">
+      <a href="../340-configuration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -835,7 +782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/510-concepts-overview/" class="md-nav__link">
+      <a href="../../reference/510-concepts-overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -856,7 +803,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/520-components/" class="md-nav__link">
+      <a href="../../reference/520-components/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -877,7 +824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/530-component-release/" class="md-nav__link">
+      <a href="../../reference/530-component-release/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -898,7 +845,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/540-template/" class="md-nav__link">
+      <a href="../../reference/540-template/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -919,7 +866,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/550-template-release/" class="md-nav__link">
+      <a href="../../reference/550-template-release/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -940,7 +887,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/560-git-repository/" class="md-nav__link">
+      <a href="../../reference/560-git-repository/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -961,7 +908,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/570-document/" class="md-nav__link">
+      <a href="../../reference/570-document/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -982,7 +929,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/580-loader/" class="md-nav__link">
+      <a href="../../reference/580-loader/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1003,7 +950,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/590-kadcli/" class="md-nav__link">
+      <a href="../../reference/590-kadcli/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1044,41 +991,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#gitops-kad-fluxcd-helm" class="md-nav__link">
-    <span class="md-ellipsis">
-      GitOps, KAD, FluxCD, Helm....
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-kad-is-not" class="md-nav__link">
-    <span class="md-ellipsis">
-      What KAD is not
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#about-this-documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      About This Documentation
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1095,44 +1007,89 @@
   
 
 
-<h1 id="kad-kubernetes-application-deployer">KAD: Kubernetes Application Deployer</h1>
-<p>KAD is a GitOps tool aimed to ease and automate application deployment. </p>
-<p>By 'application' we understand everything on top of a raw, bare Kubernetes cluster. This means not only your last nice 
-web-app, but also middleware and kubernetes extension such as ingress, cert-manager, any K8s operator, etc...  </p>
-<p>In short, anything which is installable using an Helm Chart.</p>
-<h2 id="gitops-kad-fluxcd-helm">GitOps, KAD, FluxCD, Helm....</h2>
-<p>KAD is a GitOps engines. This means the current state of the cluster is fully described in GIT.</p>
-<ul>
-<li>When this state change in Git, the engine will reconcile the cluster state.</li>
-<li>There is no direct interaction with the target cluster to deploy any application.</li>
-<li>If a change is performed directly on the cluster, the engine will override it. (Exception can be defined) </li>
-</ul>
-<p>KAD uses FluxCD, another GitOps engine under the hood. KAD added value lies in its ability to facilitate and 
-industrialize the configuration of applications to be deployed.</p>
-<p><img alt="overview" src="images/kad0.png" /></p>
-<p>Most applications that can be deployed on Kubernetes come with a Helm chart. Moreover, this Helm chart is generally
-highly flexible, designed to accommodate as many contexts as possible. This can make its configuration quite complex.</p>
-<p>Furthermore, defining a FluxCD deployment (by creating a <code>HelmRelease</code> object) requires a deep understanding of the Kubernetes
-ecosystem. As a result, application deployment is typically the responsibility of platform administrators or platform engineers.</p>
-<p>And even for experienced administrators, the verbosity of Helm configurations, especially the repetition of variables,
-can quickly become tedious and error-prone. Therefore, industrializing these configurations is crucial to improve
-efficiency and reliability.</p>
-<p>KAD is therefore a tool that allows Platform Engineers to package applications in a way that makes it easy for less
-technical users (Developers, AppOps, etc.) to deploy them, by abstracting away most of the underlying technical environment details.</p>
-<p>Beside user applications, these GitOps principle and tools can also by applied on system components (ingress, load
-balancers, K8s operators, ...).</p>
-<h2 id="what-kad-is-not">What KAD is not</h2>
-<p>KAD is not a tool aimed to deploy Kubernetes itself, such as Kind, miniKube, Kubespray, Rancher, etc...</p>
-<p>KAD need at least a naked Kubernetes cluster with an API server up and running.</p>
-<h2 id="about-this-documentation">About This Documentation</h2>
-<p>This documentation is organized into three parts:</p>
-<ul>
-<li>A 'Getting Started' section, describing the initial setup of KAD.</li>
-<li>A 'User Guide', explaining the various features.</li>
-<li>A 'Reference' section.</li>
-<li>The first two sections are based on a series of tutorials that build upon each other and often use the features 
-described in previous chapters. Therefore, we recommend reading them in order.</li>
-</ul>
+<h1 id="application-stack">Application stack</h1>
+<details class="abstract" open="open">
+<summary>components/stacks/redis-stack.yaml</summary>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">templates</span><span class="p">:</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">redis-stack</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0.0</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">parameters</span><span class="p">:</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">      </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="c1"># TBD Must be globally unique</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">      </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="c1"># Default to id</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="c1"># Default to id</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="nt">body</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">      </span><span class="no">{{- $id := .Parameters.id }}</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">      </span><span class="no">{{- $namespace := .Parameters.namespace | default $id }}</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">      </span><span class="no">componentReleases:</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">        </span><span class="no">- name: {{ $id }}-namespace</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">          </span><span class="no">enabled: {{ .Parameters.enabled }}</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">          </span><span class="no">component:</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">            </span><span class="no">name: namespace</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">            </span><span class="no">version: 0.1.0</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">            </span><span class="no">parameters:</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">              </span><span class="no">name: {{ $namespace }}</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">              </span><span class="no">labels:</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">                </span><span class="no">my.company.com/project-name: redis</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">                </span><span class="no">my.company.com/project-id: {{ $id }}</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">          </span><span class="no">namespace: default</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">          </span><span class="no">roles:</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">            </span><span class="no">- {{ $id }}-namespace</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">        </span><span class="no">- name: {{ $id }}-redis</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">          </span><span class="no">enabled: {{ .Parameters.enabled }}</span>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">          </span><span class="no">component:</span>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">            </span><span class="no">name: redis</span>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="w">            </span><span class="no">version: 0.1.0</span>
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="w">            </span><span class="no">parameters:</span>
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="w">              </span><span class="no">password: admin123</span>
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="w">              </span><span class="no">replicaCount: 1</span>
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="w">          </span><span class="no">namespace: {{ $namespace }}</span>
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="w">          </span><span class="no">roles:</span>
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="w">            </span><span class="no">- {{ $id }}-redis</span>
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="w">          </span><span class="no">dependsOn:</span>
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="w">            </span><span class="no">- {{ $id }}-namespace</span>
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="w">        </span><span class="no">- name: {{ $id }}-commander</span>
+</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="w">          </span><span class="no">enabled: {{ .Parameters.enabled }}</span>
+</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a><span class="w">          </span><span class="no">component:</span>
+</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a><span class="w">            </span><span class="no">name: redis-commander</span>
+</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a><span class="w">            </span><span class="no">version: 0.2.0</span>
+</span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a><span class="w">            </span><span class="no">parameters:</span>
+</span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a><span class="w">              </span><span class="no">redis:</span>
+</span><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a><span class="w">                </span><span class="no">host: {{ $id }}-redis-master</span>
+</span><span id="__span-0-50"><a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a><span class="w">                </span><span class="no">password: admin123</span>
+</span><span id="__span-0-51"><a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a><span class="w">              </span><span class="no">hostname: {{ .Parameters.hostname | default $id }}</span>
+</span><span id="__span-0-52"><a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a><span class="w">              </span><span class="no">tls: true</span>
+</span><span id="__span-0-53"><a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a><span class="w">          </span><span class="no">namespace: {{ $namespace }}</span>
+</span><span id="__span-0-54"><a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a><span class="w">          </span><span class="no">dependsOn:</span>
+</span><span id="__span-0-55"><a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a><span class="w">            </span><span class="no">- {{ $id }}-redis</span>
+</span><span id="__span-0-56"><a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a><span class="w">            </span><span class="no">- {{ $id }}-namespace</span>
+</span></code></pre></div>
+</details>
+<details class="abstract" open="open">
+<summary>storehouse/redis-stack-45.yaml</summary>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">templateReleases</span><span class="p">:</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">redis4</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nt">template</span><span class="p">:</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">redis-stack</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">      </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0.0</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">      </span><span class="nt">parameters</span><span class="p">:</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">        </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">redis4</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">redis5</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="nt">template</span><span class="p">:</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">redis-stack</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">      </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0.0</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">      </span><span class="nt">parameters</span><span class="p">:</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">        </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">redis5</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">        </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">project5</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">        </span><span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">project5</span>
+</span></code></pre></div>
+</details>
 
 
 
@@ -1161,15 +1118,31 @@ described in previous chapters. Therefore, we recommend reading them in order.</
       
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
+          
+          <a href="../270-dependencies/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Dependencies">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Dependencies
+              </div>
+            </div>
+          </a>
+        
         
           
-          <a href="getting-started/110-preparation/" class="md-footer__link md-footer__link--next" aria-label="Next: Preparation">
+          <a href="../290-deletion/" class="md-footer__link md-footer__link--next" aria-label="Next: Deletion and protection">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Preparation
+                Deletion and protection
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1203,10 +1176,10 @@ described in previous chapters. Therefore, we recommend reading them in order.</
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.footer"], "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.footer"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
     
   </body>

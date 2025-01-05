@@ -9,23 +9,25 @@
       
       
       
+        <link rel="prev" href="../210-the-deployment-process/">
       
-        <link rel="next" href="getting-started/110-preparation/">
+      
+        <link rel="next" href="../230-debugging/">
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.47">
     
     
       
-        <title>KAD</title>
+        <title>Improving component - KAD</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.6f8fc17f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -44,9 +46,9 @@
       
     
     
-      <link rel="stylesheet" href="assets/styles/extra.css">
+      <link rel="stylesheet" href="../../assets/styles/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -72,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#kad-kubernetes-application-deployer" class="md-skip">
+        <a href="#improving-our-component" class="md-skip">
           Skip to content
         </a>
       
@@ -88,7 +90,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="KAD" class="md-header__button md-logo" aria-label="KAD" data-md-component="logo">
+    <a href="../.." title="KAD" class="md-header__button md-logo" aria-label="KAD" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -108,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Improving component
             
           </span>
         </div>
@@ -221,7 +223,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="KAD" class="md-nav__button md-logo" aria-label="KAD" data-md-component="logo">
+    <a href="../.." title="KAD" class="md-nav__button md-logo" aria-label="KAD" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -248,30 +250,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Home
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -280,53 +262,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#gitops-kad-fluxcd-helm" class="md-nav__link">
-    <span class="md-ellipsis">
-      GitOps, KAD, FluxCD, Helm....
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-kad-is-not" class="md-nav__link">
-    <span class="md-ellipsis">
-      What KAD is not
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#about-this-documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      About This Documentation
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -373,7 +308,7 @@
   
   
     <li class="md-nav__item">
-      <a href="getting-started/110-preparation/" class="md-nav__link">
+      <a href="../../getting-started/110-preparation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -394,7 +329,7 @@
   
   
     <li class="md-nav__item">
-      <a href="getting-started/120-installation-existing-cluster/" class="md-nav__link">
+      <a href="../../getting-started/120-installation-existing-cluster/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -415,7 +350,7 @@
   
   
     <li class="md-nav__item">
-      <a href="getting-started/130-kind/" class="md-nav__link">
+      <a href="../../getting-started/130-kind/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -436,7 +371,7 @@
   
   
     <li class="md-nav__item">
-      <a href="getting-started/140-a-first-deployment/" class="md-nav__link">
+      <a href="../../getting-started/140-a-first-deployment/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -461,17 +396,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -485,7 +422,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             User guide
@@ -499,7 +436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/210-the-deployment-process/" class="md-nav__link">
+      <a href="../210-the-deployment-process/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -517,10 +454,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="guide/220-improving-component/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Improving component
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -529,6 +486,44 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-new-component-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      The new component object
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-new-componentrelease" class="md-nav__link">
+    <span class="md-ellipsis">
+      The new componentRelease
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -541,7 +536,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/230-debugging/" class="md-nav__link">
+      <a href="../230-debugging/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -562,7 +557,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/240-context/" class="md-nav__link">
+      <a href="../240-context/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -583,7 +578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/250-kadcli/" class="md-nav__link">
+      <a href="../250-kadcli/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -604,7 +599,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/260-repository-source/" class="md-nav__link">
+      <a href="../260-repository-source/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -625,7 +620,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/270-dependencies/" class="md-nav__link">
+      <a href="../270-dependencies/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -646,7 +641,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/280-stack/" class="md-nav__link">
+      <a href="../280-stack/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -667,7 +662,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/290-deletion/" class="md-nav__link">
+      <a href="../290-deletion/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -688,7 +683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/300-schemas/" class="md-nav__link">
+      <a href="../300-schemas/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -709,7 +704,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/310-document/" class="md-nav__link">
+      <a href="../310-document/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -730,7 +725,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/320-loaders/" class="md-nav__link">
+      <a href="../320-loaders/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -751,7 +746,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/330-air-gap-credentials/" class="md-nav__link">
+      <a href="../330-air-gap-credentials/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -772,7 +767,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/340-configuration/" class="md-nav__link">
+      <a href="../340-configuration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -835,7 +830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/510-concepts-overview/" class="md-nav__link">
+      <a href="../../reference/510-concepts-overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -856,7 +851,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/520-components/" class="md-nav__link">
+      <a href="../../reference/520-components/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -877,7 +872,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/530-component-release/" class="md-nav__link">
+      <a href="../../reference/530-component-release/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -898,7 +893,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/540-template/" class="md-nav__link">
+      <a href="../../reference/540-template/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -919,7 +914,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/550-template-release/" class="md-nav__link">
+      <a href="../../reference/550-template-release/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -940,7 +935,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/560-git-repository/" class="md-nav__link">
+      <a href="../../reference/560-git-repository/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -961,7 +956,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/570-document/" class="md-nav__link">
+      <a href="../../reference/570-document/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -982,7 +977,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/580-loader/" class="md-nav__link">
+      <a href="../../reference/580-loader/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1003,7 +998,7 @@
   
   
     <li class="md-nav__item">
-      <a href="reference/590-kadcli/" class="md-nav__link">
+      <a href="../../reference/590-kadcli/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1051,27 +1046,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#gitops-kad-fluxcd-helm" class="md-nav__link">
+  <a href="#the-new-component-object" class="md-nav__link">
     <span class="md-ellipsis">
-      GitOps, KAD, FluxCD, Helm....
+      The new component object
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-kad-is-not" class="md-nav__link">
+  <a href="#the-new-componentrelease" class="md-nav__link">
     <span class="md-ellipsis">
-      What KAD is not
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#about-this-documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      About This Documentation
+      The new componentRelease
     </span>
   </a>
   
@@ -1095,44 +1081,103 @@
   
 
 
-<h1 id="kad-kubernetes-application-deployer">KAD: Kubernetes Application Deployer</h1>
-<p>KAD is a GitOps tool aimed to ease and automate application deployment. </p>
-<p>By 'application' we understand everything on top of a raw, bare Kubernetes cluster. This means not only your last nice 
-web-app, but also middleware and kubernetes extension such as ingress, cert-manager, any K8s operator, etc...  </p>
-<p>In short, anything which is installable using an Helm Chart.</p>
-<h2 id="gitops-kad-fluxcd-helm">GitOps, KAD, FluxCD, Helm....</h2>
-<p>KAD is a GitOps engines. This means the current state of the cluster is fully described in GIT.</p>
+<h1 id="improving-our-component">Improving our component</h1>
+<p>This chapter describes an evolution of our <code>podinfo</code> component, adding support for secure connections using the 
+TLS protocol.</p>
+<p>It assumes that the cluster includes a certificate generation tool: <a href="https://cert-manager.io/">cert-manager</a>, providing an issuer of type <code>ClusterIssuer</code>.</p>
+<p>If this is not the case, we still recommend reading this chapter as it contains general information.</p>
+<p>If you are using the Kind cluster as described earlier, these prerequisites are already satisfied.</p>
+<h2 id="the-new-component-object">The new component object</h2>
+<p>This new version of the component is already defined in the GIT repository, at the following location:</p>
+<details class="abstract" open="open">
+<summary>components/apps/pod-info-0.2.0.yaml</summary>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">components</span><span class="p">:</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">podinfo</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.2.0</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">source</span><span class="p">:</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">      </span><span class="nt">defaultVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">6.7.1</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">      </span><span class="nt">helmRepository</span><span class="p">:</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">        </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://stefanprodan.github.io/podinfo</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">        </span><span class="nt">chart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">podinfo</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="nt">allowCreateNamespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="nt">parameters</span><span class="p">:</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">      </span><span class="nt">ingressClassName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">      </span><span class="nt">fqdn</span><span class="p">:</span><span class="w"> </span><span class="c1"># TBD</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">      </span><span class="nt">tls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">      </span><span class="nt">clusterIssuer</span><span class="p">:</span><span class="w"> </span><span class="c1"># TBD if tls == true</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="nt">values</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">      </span><span class="no">ingress:</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">        </span><span class="no">enabled: true</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">        </span><span class="no">className: nginx</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">        </span><span class="no">{{- if .Parameters.tls }}</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">        </span><span class="no">annotations:</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">          </span><span class="no">cert-manager.io/cluster-issuer: {{ required &quot;`.Parameters.clusterIssuer` must be defined if tls: true&quot; .Parameters.clusterIssuer}}</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">        </span><span class="no">{{- end }}</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">        </span><span class="no">hosts:</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">          </span><span class="no">- host: {{ .Parameters.fqdn }}</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">            </span><span class="no">paths:</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">              </span><span class="no">- path: /</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">                </span><span class="no">pathType: ImplementationSpecific</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">        </span><span class="no">{{- if .Parameters.tls }}</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">        </span><span class="no">tls:</span>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">          </span><span class="no">- secretName: {{ .Meta.componentRelease.name }}-tls</span>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">            </span><span class="no">hosts:</span>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="w">              </span><span class="no">- {{ .Parameters.fqdn }}</span>
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="w">        </span><span class="no">{{- end }}</span>
+</span></code></pre></div>
+</details>
+<p>The first difference is that the version number has been incremented.</p>
+<p>Two additional <code>parameters</code> have been added:</p>
 <ul>
-<li>When this state change in Git, the engine will reconcile the cluster state.</li>
-<li>There is no direct interaction with the target cluster to deploy any application.</li>
-<li>If a change is performed directly on the cluster, the engine will override it. (Exception can be defined) </li>
+<li><code>tls</code>: A boolean to enable or disable the secure protocol.</li>
+<li><code>clusterIssuer</code>: The <code>ClusterIssuer</code> that will be used to generate the certificate used by the ingress controller.</li>
 </ul>
-<p>KAD uses FluxCD, another GitOps engine under the hood. KAD added value lies in its ability to facilitate and 
-industrialize the configuration of applications to be deployed.</p>
-<p><img alt="overview" src="images/kad0.png" /></p>
-<p>Most applications that can be deployed on Kubernetes come with a Helm chart. Moreover, this Helm chart is generally
-highly flexible, designed to accommodate as many contexts as possible. This can make its configuration quite complex.</p>
-<p>Furthermore, defining a FluxCD deployment (by creating a <code>HelmRelease</code> object) requires a deep understanding of the Kubernetes
-ecosystem. As a result, application deployment is typically the responsibility of platform administrators or platform engineers.</p>
-<p>And even for experienced administrators, the verbosity of Helm configurations, especially the repetition of variables,
-can quickly become tedious and error-prone. Therefore, industrializing these configurations is crucial to improve
-efficiency and reliability.</p>
-<p>KAD is therefore a tool that allows Platform Engineers to package applications in a way that makes it easy for less
-technical users (Developers, AppOps, etc.) to deploy them, by abstracting away most of the underlying technical environment details.</p>
-<p>Beside user applications, these GitOps principle and tools can also by applied on system components (ingress, load
-balancers, K8s operators, ...).</p>
-<h2 id="what-kad-is-not">What KAD is not</h2>
-<p>KAD is not a tool aimed to deploy Kubernetes itself, such as Kind, miniKube, Kubespray, Rancher, etc...</p>
-<p>KAD need at least a naked Kubernetes cluster with an API server up and running.</p>
-<h2 id="about-this-documentation">About This Documentation</h2>
-<p>This documentation is organized into three parts:</p>
+<p>The template defined by the <code>values</code> attribute has also been updated to account for the optional TLS configuration, 
+adapting it to the format required by the Helm Chart of <code>podinfo</code>.</p>
+<p>We can also notice the appearance of a new root object: <code>.Meta</code>, which allows retrieving the deployment name.</p>
+<blockquote>
+<p>The exhaustive definition of the variables comprising the data model used here can be found in the <a href="../../reference/530-component-release/">Reference</a> section.</p>
+</blockquote>
+<p>The goal here is to name the secret that stores the certificate. Therefore, we need a name that ensures its uniqueness.</p>
+<h2 id="the-new-componentrelease">The new componentRelease</h2>
+<p>To deploy a component with this version, you may create a new file in Git in the deployment folder:</p>
+<details class="abstract" open="open">
+<summary>cluster/kadtestX/deployments/podinfo2.yaml</summary>
+<div class="language-yaml copy highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">componentReleases</span><span class="p">:</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">podinfo2</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">component</span><span class="p">:</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">podinfo</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">      </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.2.0</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">      </span><span class="nt">config</span><span class="p">:</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">        </span><span class="nt">install</span><span class="p">:</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">          </span><span class="nt">createNamespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">      </span><span class="nt">parameters</span><span class="p">:</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">        </span><span class="nt">ingressClassName</span><span class="p">:</span><span class="w"> </span><span class="c1"># To be set if != nginx</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">        </span><span class="nt">fqdn</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">podinfo2.ingress.kadtestX.k8s.local</span><span class="w"> </span><span class="c1"># To adjust to your local context</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">        </span><span class="nt">tls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">        </span><span class="nt">clusterIssuer</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kad</span><span class="w"> </span><span class="c1"># To adjust to your local context</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">podinfo2</span>
+</span></code></pre></div>
+</details>
+<p>As usual, some parameters may need adjustment:</p>
 <ul>
-<li>A 'Getting Started' section, describing the initial setup of KAD.</li>
-<li>A 'User Guide', explaining the various features.</li>
-<li>A 'Reference' section.</li>
-<li>The first two sections are based on a series of tutorials that build upon each other and often use the features 
-described in previous chapters. Therefore, we recommend reading them in order.</li>
+<li><code>fqdn</code>, at least to replace kadtestX</li>
+<li><code>clusterIssuer</code>: If you performed the deployment on kind, as stated in previous chapters, <code>kad</code> is the appropriate 
+value. Otherwise, the value depends of your cluster configuration.  </li>
 </ul>
+<p>After committing and pushing this addition, you should have a new pod <code>podinfo2</code> and a new <code>ingress</code> kubernetes object.</p>
+<p>You should be able to point your browser to <code>https://podinfo2.ingress.kadtestX.k8s.local</code> (Note the <code>https</code>).</p>
+<blockquote>
+<p>Of course, your DNS system must resolve <code>podinfo2.ingress.kadtestX.k8s.local</code> to your ingress-controller endpoint.</p>
+</blockquote>
+<p>Note than the initial deployment (<code>podinfo1</code>) is retained with its original characteristics (plain text connection). 
+Component versioning allows multiple versions to coexist.</p>
+<p>Keep in mind that the Git repository should, in principle, always reflect the current state of your cluster(s). 
+This state is often heterogeneous in terms of component versions.</p>
+<p>The principle is therefore not to modify a component that has been deployed but to create a new version in case of evolution.</p>
+<p>Once all associated deployments have been migrated to the new version, the initial component can be safely removed.</p>
+<p>As a matter of exercise, you may update the <code>podinfo1</code> <code>componentRelease</code> to change the component version number. 
+You will also need to set <code>tls: true</code> and the <code>clusterIssuer</code> value.</p>
 
 
 
@@ -1161,15 +1206,31 @@ described in previous chapters. Therefore, we recommend reading them in order.</
       
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
+          
+          <a href="../210-the-deployment-process/" class="md-footer__link md-footer__link--prev" aria-label="Previous: The deployment process">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                The deployment process
+              </div>
+            </div>
+          </a>
+        
         
           
-          <a href="getting-started/110-preparation/" class="md-footer__link md-footer__link--next" aria-label="Next: Preparation">
+          <a href="../230-debugging/" class="md-footer__link md-footer__link--next" aria-label="Next: Debugging">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Preparation
+                Debugging
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1203,10 +1264,10 @@ described in previous chapters. Therefore, we recommend reading them in order.</
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.footer"], "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.footer"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
     
   </body>
