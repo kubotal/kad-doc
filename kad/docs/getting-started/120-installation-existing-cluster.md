@@ -133,6 +133,8 @@ flux bootstrap github \
 
 > Adjust the path to match the cluster name if you have changed it.
 
+> Note the option `--read-write-key`. This is required for the [GIT Api](xxxxxx.md)
+
 The output should look like this:
 
 ``` bash
